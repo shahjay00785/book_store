@@ -121,18 +121,41 @@ class Admin extends CI_Controller {
 
 	public function mange_college($parameter1="",$parameter2=""){
 		if($parameter1=="add"){
-
+			$data['college_name']=$this->input->post('txt_college_name');
+			$data['college_desc']=$this->input->post('txt_college_desc');
+			$data['college_contactnum']=$this->input->post('txt_college_contactnum');
+			$data['college_address']=$this->input->post('txt_college_address');
+			$data['college_website']=$this->input->post('txt_college_website');
+			$data['city_id']=$this->input->post('select_city');
+			$this->db->insert('tbl_college',$data);
+			redirect('Admin_controller/Admin/mange_college');
 		}
 		if($parameter1=="delete"){
-
+			$this->db->where('college_id',$parameter2);
+			$this->db->delete('tbl_college');
+			redirect('Admin_controller/Admin/mange_college');
 		}
 		if($parameter1=="edit"){
+			$this->db->where('college_id',$parameter2);
+			$college_data['edit_colleges']=$this->db->get('tbl_college');
 
 		}
 		if($parameter1=="do_update"){
-
+			$update_data['college_name']=$this->input->post('txt_college_name');
+			$update_data['college_desc']=$this->input->post('txt_college_desc');
+			$update_data['college_contactnum']=$this->input->post('txt_college_contactnum');
+			$update_data['college_address']=$this->input->post('txt_college_address');
+			$update_data['college_website']=$this->input->post('txt_college_website');
+			$update_data['city_id']=$this->input->post('select_city');
+			$this->db->where('college_id',$parameter2);
+			$this->db->update('tbl_college',$update_data);
+			redirect('Admin_controller/Admin/mange_college');
 		}
+		$college_data['colleges']=$this->db->get('tbl_college');
+		$this->load->view('admin_view/college_view',$college_data);
 	}
+
+
 
 	public function mange_semster($parameter1="",$parameter2=""){
 		if($parameter1=="add"){
@@ -164,21 +187,7 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	public function mange_oreder($parameter1="",$parameter2=""){
-		if($parameter1=="add"){
 
-		}
-		if($parameter1=="delete"){
-
-		}
-		if($parameter1=="edit"){
-
-		}
-		if($parameter1=="do_update"){
-
-
-		}
-	}
 
 	public function mange_country($parameter1="",$parameter2=""){
 		if($parameter1=="add"){
@@ -206,5 +215,128 @@ class Admin extends CI_Controller {
 		$country_data['countries']=$this->db->get('tbl_country');
 		$this->load->view('admin_view/country_view',$country_data);
 	}
+
+	public function mange_state($parameter1="",$parameter2=""){
+		if($parameter1=="add"){
+			$data['state_code']=$this->input->post('txt_state_code');
+			$data['state_name']=$this->input->post('txt_state_name');
+			$data['country_id']=$this->input->post('select_country');
+			$this->db->insert('tbl_state',$data);
+			redirect('Admin_controller/Admin/mange_state');
+		}
+		if($parameter1=="delete"){
+			$this->db->where('state_id',$parameter2);
+			$this->db->delete('tbl_state');
+			redirect('Admin_controller/Admin/mange_state');
+		}
+		if($parameter1=="edit"){
+			$this->db->where('state_id',$parameter2);
+			$state_data['edit_states']=$this->db->get('tbl_state');
+		}
+		if($parameter1=="do_update"){
+			$update_data['state_code']=$this->input->post('txt_state_code');
+			$update_data['state_name']=$this->input->post('txt_state_name');
+			$update_data['country_id']=$this->input->post('select_country');
+			$this->db->where('state_id',$parameter2);
+			$this->db->update('tbl_state',$update_data);
+			redirect('Admin_controller/Admin/mange_state');
+		}
+
+		$state_data['states']=$this->db->get('tbl_state');
+		$this->load->view('admin_view/state_view',$state_data);
+	}
+
+	public function mange_city($parameter1="",$parameter2=""){
+		if($parameter1=="add"){
+			$data['city_code']=$this->input->post('txt_city_code');
+			$data['city_name']=$this->input->post('txt_city_name');
+			$data['state_id']=$this->input->post('select_state');
+			$this->db->insert('tbl_city',$data);
+			redirect('Admin_controller/Admin/mange_city');
+		}
+		if($parameter1=="delete"){
+			$this->db->where('city_id',$parameter2);
+			$this->db->delete('tbl_city');
+			redirect('Admin_controller/Admin/mange_city');
+		}
+		if($parameter1=="edit"){
+			$this->db->where('city_id',$parameter2);
+			$city_data['edit_cities']=$this->db->get('tbl_city');
+		}
+		if($parameter1=="do_update"){
+			$update_data['city_code']=$this->input->post('txt_city_code');
+			$update_data['city_name']=$this->input->post('txt_city_name');
+			$update_data['state_id']=$this->input->post('select_state');
+			$this->db->where('city_id',$parameter2);
+			$this->db->update('tbl_city',$update_data);
+			redirect('Admin_controller/Admin/mange_city');
+		}
+
+		$city_data['cities']=$this->db->get('tbl_city');
+		$this->load->view('admin_view/city_view',$city_data);
+	}
+	public function mange_book_status($parameter1="",$parameter2=""){
+		if($parameter1=="add"){
+			$data['book_status_code']=$this->input->post('txt_status_code');
+			$data['book_status_name']=$this->input->post('txt_status_name');
+			$this->db->insert('tbl_book_status',$data);
+			redirect('Admin_controller/Admin/mange_book_status');
+		}
+		if($parameter1=="delete"){
+			$this->db->where('book_status_id',$parameter2);
+			$this->db->delete('tbl_book_status');
+			redirect('Admin_controller/Admin/mange_book_status');
+		}
+		if($parameter1=="edit"){
+			$this->db->where('book_status_id',$parameter2);
+			$status_data['edit_statuses']=$this->db->get('tbl_book_status');
+		}
+		if($parameter1=="do_update"){
+			$update_data['book_status_code']=$this->input->post('txt_status_code');
+			$update_data['book_status_name']=$this->input->post('txt_status_name');
+			$this->db->where('book_status_id',$parameter2);
+			$this->db->update('tbl_book_status',$update_data);
+			redirect('Admin_controller/Admin/mange_book_status');
+		}
+		$status_data['statuses']=$this->db->get('tbl_book_status');
+		$this->load->view('admin_view/book_status_view',$status_data);
+	}
+
+	public function mange_book_master($parameter1="",$parameter2=""){
+		if($parameter1=="add"){
+
+			$data['book_master_name']=$this->input->post('txt_book_master_name');
+			$data['book_master_isbn']=$this->input->post('txt_book_master_isbn');
+			$data['book_master_desc']=$this->input->post('txt_book_master_des');
+			$data['book_master_img']="img";
+			$data['author_id']=$this->input->post('select_author');
+			$data['pub_id']=$this->input->post('select_publisher');
+			$data['book_status_id']=$this->input->post('select_status');
+			$data['book_org_price']=$this->input->post('txt_book_master_price');
+			$this->db->insert('tbl_book_master',$data);
+			redirect('Admin_controller/Admin/mange_book_master');
+		}
+		if($parameter1=="delete"){
+			$this->db->where('book_status_id',$parameter2);
+			$this->db->delete('tbl_book_status');
+			redirect('Admin_controller/Admin/mange_book_master');
+		}
+		if($parameter1=="edit"){
+			$this->db->where('book_status_id',$parameter2);
+			$status_data['edit_statuses']=$this->db->get('tbl_book_master');
+			redirect('Admin_controller/Admin/mange_book_master');
+		}
+		if($parameter1=="do_update"){
+			$update_data['book_status_code']=$this->input->post('txt_status_code');
+			$update_data['book_status_name']=$this->input->post('txt_status_name');
+			$this->db->where('book_status_id',$parameter2);
+			$this->db->update('tbl_book_status',$update_data);
+			redirect('Admin_controller/Admin/mange_book_status');
+		}
+		$book_status_data['state']=$this->db->get('tbl_book_master');
+		$this->load->view('admin_view/book_master_view',$book_status_data);
+	}
+
+
 
 }
