@@ -1,3 +1,16 @@
+<?php
+
+  if(!isset($edit_book_master)){
+    echo "add";
+  }
+  else{
+    echo "edit";
+  }
+
+
+
+ ?>
+
 
 <!DOCTYPE html>
 <html>

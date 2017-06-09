@@ -94,7 +94,7 @@ else{
           <td><?php echo $row->state_id; ?></td>
           <td><?php echo $row->state_code; ?></td>
           <td><?php echo $row->state_name; ?></td>
-          <td><?php echo $row->country_id; ?> </td>
+          <td><?php echo $row->country_name; ?> </td>
           <td><a href="<?php echo base_url('Admin_controller/Admin/mange_state/delete/').$row->state_id; ?>"> delete</a></td>
           <td><a href="<?php echo base_url('Admin_controller/Admin/mange_state/edit/').$row->state_id; ?>"> edit</a></td>
         </tr>
