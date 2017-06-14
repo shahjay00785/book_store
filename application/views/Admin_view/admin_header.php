@@ -12,16 +12,16 @@
   <title>SB Admin - Bootstrap Admin Template</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="<?php echo base_url('Assests/css/bootstrap.min.css')?>" rel="stylesheet">
+  <link href="<?php echo base_url('Assests/Admin_template/css/bootstrap.min.css')?>" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="<?php echo base_url()?>Assests/css/sb-admin.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>Assests/Admin_template/css/sb-admin.css" rel="stylesheet">
 
   <!-- Morris Charts CSS -->
-  <link href="<?php echo base_url()?>Assests/css/plugins/morris.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>Assests/Admin_template/css/plugins/morris.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
-  <link href="<?php echo base_url()?>Assests/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url()?>Assests/Admin_template/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +41,7 @@
     border-radius: 50%;
 }
   </style>
-  <script language="JavaScript" src="<?php echo base_url('Assests/js/gen_validatorv4.js'); ?>" >
+  <script language="JavaScript" src="<?php echo base_url('Assests/Admin_template/js/gen_validatorv4.js'); ?>" >
   type="text/javascript" xml:space="preserve"></script>
 
 </head>

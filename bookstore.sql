@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2017 at 09:14 PM
+-- Generation Time: Jun 14, 2017 at 05:15 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -29,12 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_author` (
   `author_id` int(100) NOT NULL,
   `author_name` varchar(255) NOT NULL,
+  `author_gender` varchar(100) NOT NULL,
   `author_email` varchar(255) NOT NULL,
-  `author_contactnum` int(255) NOT NULL,
-  `author_website` int(255) NOT NULL,
+  `author_contactnum` double NOT NULL,
+  `author_website` varchar(255) NOT NULL,
   `author_desc` text NOT NULL,
   `author_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_author`
+--
+
+INSERT INTO `tbl_author` (`author_id`, `author_name`, `author_gender`, `author_email`, `author_contactnum`, `author_website`, `author_desc`, `author_status`) VALUES
+(8, 'vivek', 'male', 'vivek@gmail.com', 74054, 'vivek.com', 'viv', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -48,12 +56,23 @@ CREATE TABLE `tbl_book_master` (
   `book_master_name` varchar(100) NOT NULL,
   `book_master_img` varchar(100) NOT NULL,
   `author_id` int(100) NOT NULL,
-  `pub_id` int(100) NOT NULL,
-  `book_master_isbn` int(100) NOT NULL,
-  `book_status_id` int(100) NOT NULL,
+  `publisher_id` int(100) NOT NULL,
+  `book_master_isbn` varchar(100) NOT NULL,
+  `book_master_status` varchar(100) NOT NULL,
   `book_master_desc` text NOT NULL,
-  `book_org_price` int(100) NOT NULL
+  `book_master_price` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_book_master`
+--
+
+INSERT INTO `tbl_book_master` (`book_master_id`, `cat_id`, `book_master_name`, `book_master_img`, `author_id`, `publisher_id`, `book_master_isbn`, `book_master_status`, `book_master_desc`, `book_master_price`) VALUES
+(2, 0, '', '', 0, 0, '', '', '', 0),
+(3, 2, 'ac', '', 8, 3, '10000000000', 'No', 'haha', 500),
+(4, 2, 'asd', 'swimlane.png', 8, 3, '', 'No', 'opp', 5000),
+(5, 2, 'asd', '2.jpg', 8, 0, '', 'Yes', '180', 800),
+(6, 2, 'a', '', 8, 3, '1800', 'Yes', 'ac', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -63,8 +82,16 @@ CREATE TABLE `tbl_book_master` (
 
 CREATE TABLE `tbl_book_status` (
   `book_status_id` int(100) NOT NULL,
-  `book_status` varchar(100) NOT NULL
+  `book_status_name` varchar(100) NOT NULL,
+  `book_status_code` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_book_status`
+--
+
+INSERT INTO `tbl_book_status` (`book_status_id`, `book_status_name`, `book_status_code`) VALUES
+(3, 'Not found', '404');
 
 -- --------------------------------------------------------
 
@@ -86,44 +113,7 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `cat_img`, `cat_desc`, `cat_status`, `cat_update_date`) VALUES
-(3, 'asd', 'img', 'da', 'dsa', '2017-06-06'),
-(8, '', 'img', '', '', '2017-06-06'),
-(10, 'ABC', 'img', 'SAD', 'ASD', '2017-06-06'),
-(17, '', 'img', '', '', '2017-06-06'),
-(18, '', 'img', '', '', '2017-06-06'),
-(19, '', 'img', '', '', '2017-06-06'),
-(20, '', 'img', '', '', '2017-06-06'),
-(21, '', 'img', '', '', '2017-06-06'),
-(22, '', 'img', '', '', '2017-06-06'),
-(23, '', 'img', '', '', '2017-06-06'),
-(24, '', 'img', '', '', '2017-06-06'),
-(25, '', 'img', '', '', '2017-06-06'),
-(26, '', 'img', '', '', '2017-06-06'),
-(27, '', 'img', '', '', '2017-06-06'),
-(28, '', 'img', '', '', '2017-06-06'),
-(29, '', 'img', '', '', '2017-06-06'),
-(30, '', 'img', '', '', '2017-06-06'),
-(31, '', 'img', '', '', '2017-06-06'),
-(32, '', 'img', '', '', '2017-06-06'),
-(33, '', 'img', '', '', '2017-06-06'),
-(34, '', 'img', '', '', '2017-06-06'),
-(35, '', 'img', '', '', '2017-06-06'),
-(36, '', 'img', '', '', '2017-06-06'),
-(37, '', 'img', '', '', '2017-06-06'),
-(38, '', 'img', '', '', '2017-06-06'),
-(39, '', 'img', '', '', '2017-06-06'),
-(40, '', 'img', '', '', '2017-06-06'),
-(41, '', 'img', '', '', '2017-06-06'),
-(42, '', 'img', '', '', '2017-06-06'),
-(43, '', 'img', '', '', '2017-06-06'),
-(44, '', 'img', '', '', '2017-06-06'),
-(45, '', 'img', '', '', '2017-06-06'),
-(46, '', 'img', '', '', '2017-06-06'),
-(47, '', 'img', '', '', '2017-06-06'),
-(48, '', 'img', '', '', '2017-06-06'),
-(49, '', 'img', '', '', '2017-06-06'),
-(50, 'abc', 'img', 'xyz', 'pending', '2017-06-06'),
-(51, 'abc', 'img', '', '', '2017-06-06');
+(2, 'novel', 'Screenshot from 2017-04-15 09-03-43.png', 'novel', 'Yes', '2017-06-14');
 
 -- --------------------------------------------------------
 
@@ -134,8 +124,17 @@ INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `cat_img`, `cat_desc`, `cat_st
 CREATE TABLE `tbl_city` (
   `city_id` int(100) NOT NULL,
   `city_name` varchar(100) NOT NULL,
+  `city_code` varchar(100) NOT NULL,
   `state_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_city`
+--
+
+INSERT INTO `tbl_city` (`city_id`, `city_name`, `city_code`, `state_id`) VALUES
+(2, 'surat', 'st', 8),
+(3, 'mumbai', 'mum', 8);
 
 -- --------------------------------------------------------
 
@@ -146,22 +145,21 @@ CREATE TABLE `tbl_city` (
 CREATE TABLE `tbl_college` (
   `college_id` int(100) NOT NULL,
   `college_name` varchar(100) NOT NULL,
+  `college_address` varchar(100) NOT NULL,
+  `college_contactnum` double NOT NULL,
   `college_desc` varchar(100) NOT NULL,
   `college_website` varchar(100) NOT NULL,
   `city_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `tbl_college_semster`
+-- Dumping data for table `tbl_college`
 --
 
-CREATE TABLE `tbl_college_semster` (
-  `semster_id` int(11) NOT NULL,
-  `semster_num` int(11) NOT NULL,
-  `college_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `tbl_college` (`college_id`, `college_name`, `college_address`, `college_contactnum`, `college_desc`, `college_website`, `city_id`) VALUES
+(1, 'svnit', 'piplod', 1234, 'good', 'www.svnit.com', 0),
+(2, 'scet', 'abc', 7405407804, 'good', '', 2),
+(4, 'iitb', 'powai', 222451074, 'excellent', 'www.iitb.gov.in', 3);
 
 -- --------------------------------------------------------
 
@@ -433,13 +431,21 @@ INSERT INTO `tbl_country` (`country_id`, `country_code`, `country_name`) VALUES
 --
 
 CREATE TABLE `tbl_publisher` (
-  `pub_id` int(100) NOT NULL,
-  `pub_name` varchar(100) NOT NULL,
-  `pub_email` varchar(100) NOT NULL,
-  `pub_contactnum` int(100) NOT NULL,
-  `pub_website` varchar(100) NOT NULL,
-  `pub_status` varchar(255) NOT NULL
+  `publisher_id` int(100) NOT NULL,
+  `publisher_name` varchar(100) NOT NULL,
+  `publisher_email` varchar(100) NOT NULL,
+  `publisher_contactnum` double NOT NULL,
+  `publisher_website` varchar(100) NOT NULL,
+  `publisher_desc` text NOT NULL,
+  `publisher_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_publisher`
+--
+
+INSERT INTO `tbl_publisher` (`publisher_id`, `publisher_name`, `publisher_email`, `publisher_contactnum`, `publisher_website`, `publisher_desc`, `publisher_status`) VALUES
+(3, 'tata', 'tat', 740, 'tata.com', 'tata', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -450,8 +456,16 @@ CREATE TABLE `tbl_publisher` (
 CREATE TABLE `tbl_state` (
   `state_id` int(100) NOT NULL,
   `state_name` varchar(255) NOT NULL,
+  `state_code` varchar(100) NOT NULL,
   `country_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_state`
+--
+
+INSERT INTO `tbl_state` (`state_id`, `state_name`, `state_code`, `country_id`) VALUES
+(8, 'gujarat', 'gj', 99);
 
 -- --------------------------------------------------------
 
@@ -461,19 +475,26 @@ CREATE TABLE `tbl_state` (
 
 CREATE TABLE `tbl_user` (
   `user_id` int(255) NOT NULL,
-  `user_first_name` int(255) NOT NULL,
-  `user_last_name` int(255) NOT NULL,
-  `user_email` int(255) NOT NULL,
+  `user_first_name` varchar(255) NOT NULL,
+  `user_last_name` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
   `user_password` varchar(100) NOT NULL,
-  `user_contactnum` int(255) NOT NULL,
-  `user_address1` int(255) NOT NULL,
-  `user_address2` int(255) NOT NULL,
+  `user_contactnum` varchar(255) NOT NULL,
+  `user_address1` varchar(255) NOT NULL,
+  `user_address2` varchar(255) NOT NULL,
   `city_id` int(255) NOT NULL,
   `state_id` int(255) NOT NULL,
   `country_id` int(255) NOT NULL,
   `college_id` int(255) NOT NULL,
   `user_status` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_contactnum`, `user_address1`, `user_address2`, `city_id`, `state_id`, `country_id`, `college_id`, `user_status`) VALUES
+(1, 'jay', 'shah', 'shahjay00785', '1234', '7405407804', '5/461', 'surat', 1, 2, 1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -490,6 +511,12 @@ ALTER TABLE `tbl_author`
 --
 ALTER TABLE `tbl_book_master`
   ADD PRIMARY KEY (`book_master_id`);
+
+--
+-- Indexes for table `tbl_book_status`
+--
+ALTER TABLE `tbl_book_status`
+  ADD PRIMARY KEY (`book_status_id`);
 
 --
 -- Indexes for table `tbl_category`
@@ -519,13 +546,19 @@ ALTER TABLE `tbl_country`
 -- Indexes for table `tbl_publisher`
 --
 ALTER TABLE `tbl_publisher`
-  ADD PRIMARY KEY (`pub_id`);
+  ADD PRIMARY KEY (`publisher_id`);
 
 --
 -- Indexes for table `tbl_state`
 --
 ALTER TABLE `tbl_state`
   ADD PRIMARY KEY (`state_id`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -535,27 +568,32 @@ ALTER TABLE `tbl_state`
 -- AUTO_INCREMENT for table `tbl_author`
 --
 ALTER TABLE `tbl_author`
-  MODIFY `author_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `author_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tbl_book_master`
 --
 ALTER TABLE `tbl_book_master`
-  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tbl_book_status`
+--
+ALTER TABLE `tbl_book_status`
+  MODIFY `book_status_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_city`
 --
 ALTER TABLE `tbl_city`
-  MODIFY `city_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `city_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_college`
 --
 ALTER TABLE `tbl_college`
-  MODIFY `college_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `college_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_country`
 --
@@ -565,12 +603,17 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_publisher`
 --
 ALTER TABLE `tbl_publisher`
-  MODIFY `pub_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `publisher_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_state`
 --
 ALTER TABLE `tbl_state`
-  MODIFY `state_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `state_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

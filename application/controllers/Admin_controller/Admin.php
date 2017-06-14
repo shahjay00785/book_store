@@ -158,8 +158,14 @@ class Admin extends CI_Controller {
 			$data['book_master_name']=$this->input->post('txt_book_master_name');
 			$data['book_master_desc']=$this->input->post('txt_book_master_desc');
 			$data['book_master_img']=$this->input->post('txt_book_master_img');
+			$data['book_master_isbn']=$this->input->post('txt_book_master_isbn');
+			$data['book_master_price']=$this->input->post('txt_book_master_price');
 			$data['book_master_status']=$this->input->post('txt_radio_yes');
-			$data['book_master_update_date']=date('Y-m-d H:i:s');
+			$data['author_id']=$this->input->post('txt_select_author');
+			$data['publisher_id']=$this->input->post('txt_select_publisher');
+			$data['cat_id']=$this->input->post('txt_select_category');
+
+
 
 			if($_FILES["txt_book_master_img"]["error"]==0)
 			{
@@ -193,8 +199,13 @@ class Admin extends CI_Controller {
 		if($parameter1=="do_update"){
 			$update_data['book_master_name']=$this->input->post('txt_book_master_name');
 			$update_data['book_master_desc']=$this->input->post('txt_book_master_desc');
+			$update_data['book_master_img']=$this->input->post('txt_book_master_img');
+			$update_data['book_master_price']=$this->input->post('txt_book_master_price');
+			$update_data['book_master_isbn']=$this->input->post('txt_book_master_isbn');
 			$update_data['book_master_status']=$this->input->post('txt_radio_yes');
-			$updtae_data['book_master_update_date']=date('Y-m-d H:i:s');
+			$update_data['author_id']=$this->input->post('txt_select_author');
+			$update_data['publisher_id']=$this->input->post('txt_select_publisher');
+			$update_data['cat_id']=$this->input->post('txt_select_category');
 
 			if($_FILES["txt_book_master_img"]["error"]==0)
 			{
@@ -214,7 +225,7 @@ class Admin extends CI_Controller {
 			$this->book_master_model->book_master_update($parameter2,$update_data);
 			redirect('Admin_controller/Admin/manage_book_master');
 		}
-		$book_master_data['book_masteregories']=$this->book_master_model->book_master_view('tbl_book_master');
+		$book_master_data['book_masters']=$this->book_master_model->book_master_view('tbl_book_master');
 		$this->load->view('Admin_view/book_master_view',$book_master_data);
 	}
 
