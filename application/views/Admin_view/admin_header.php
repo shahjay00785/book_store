@@ -36,6 +36,10 @@
   A{font-family: Arial,Verdana,Helvetica, sans-serif;}
   B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : bold;}
   .error_strings{ font-family:Verdana; font-size:14px; color:#660000; background-color:#ff0;}
+
+  .img-circle {
+    border-radius: 50%;
+}
   </style>
   <script language="JavaScript" src="<?php echo base_url('Assests/js/gen_validatorv4.js'); ?>" >
   type="text/javascript" xml:space="preserve"></script>

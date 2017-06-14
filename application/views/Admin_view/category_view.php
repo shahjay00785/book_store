@@ -83,8 +83,9 @@
           ?>
           <div class="col-lg-12">
             <h1 class="page-header">
-              Caregory Edit
+              Caregory Edit <a href="<?php echo base_url('Admin_controller/admin/manage_category'); ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/add.png'); ?>" width="50px" height="50px">  </a>
             </h1>
+
             <ol class="breadcrumb">
               <li>
                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -153,7 +154,7 @@
           </div>
 
           <div class="col-lg-12">
-            <h2>Category Views</h2>
+            <h2>Category Views <a href="<?php echo base_url('Admin_controller/admin/manage_category'); ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/add.png'); ?>" width="50px" height="50px">  </a></h2>
             <div class="table-responsive">
               <table class="table table-bordered table-hover table-striped">
                 <thead>
@@ -196,8 +197,8 @@
                       <td><?php echo $row->cat_desc; ?></td>
                       <td><?php echo $row->cat_status; ?></td>
                       <td><?php echo $row->cat_update_date; ?></td>
-                      <td><a href="<?php echo base_url('Admin_controller/Admin/manage_category/delete/').$row->cat_id; ?>"> delete </a> </td>
-                      <td><a href="<?php echo base_url('Admin_controller/Admin/manage_category/edit/').$row->cat_id; ?>"> Update </a> </td>
+                      <td><a href="<?php echo base_url('Admin_controller/Admin/manage_category/delete/').$row->cat_id; ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/delete.png'); ?>" width="50px" height="50px"> </a> </td>
+                      <td><a href="<?php echo base_url('Admin_controller/Admin/manage_category/edit/').$row->cat_id; ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/update.png'); ?>" width="50px" height="50px"></a> </td>
                     </tr>
 
 
