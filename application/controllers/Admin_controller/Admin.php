@@ -14,6 +14,7 @@ class Admin extends CI_Controller {
 			$data['cat_desc']=$this->input->post('txt_category_desc');
 			$data['cat_img']=$this->input->post('txt_category_img');
 			$data['cat_status']=$this->input->post('txt_radio_yes');
+			$data['cat_parent_id']=0;
 			$data['cat_update_date']=date('Y-m-d H:i:s');
 
 			if($_FILES["txt_category_img"]["error"]==0)
@@ -157,14 +158,13 @@ class Admin extends CI_Controller {
 		if($parameter1=="add"){
 			$data['book_master_name']=$this->input->post('txt_book_master_name');
 			$data['book_master_desc']=$this->input->post('txt_book_master_desc');
-			$data['book_master_img']=$this->input->post('txt_book_master_img');
+			//	$data['book_master_img']=$this->input->post('txt_book_master_img');
 			$data['book_master_isbn']=$this->input->post('txt_book_master_isbn');
 			$data['book_master_price']=$this->input->post('txt_book_master_price');
 			$data['book_master_status']=$this->input->post('txt_radio_yes');
 			$data['author_id']=$this->input->post('txt_select_author');
 			$data['publisher_id']=$this->input->post('txt_select_publisher');
 			$data['cat_id']=$this->input->post('txt_select_category');
-
 
 
 			if($_FILES["txt_book_master_img"]["error"]==0)
@@ -227,6 +227,10 @@ class Admin extends CI_Controller {
 		}
 		$book_master_data['book_masters']=$this->book_master_model->book_master_view('tbl_book_master');
 		$this->load->view('Admin_view/book_master_view',$book_master_data);
+	}
+
+	public function manage_dashboard(){
+			$this->load->view('Admin_view/admin_dashboard');
 	}
 
 }

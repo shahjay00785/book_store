@@ -22,7 +22,7 @@
           </h1>
           <ol class="breadcrumb">
             <li>
-              <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+              <i class="fa fa-dashboard"></i>   <a href="<?php echo base_url('Admin_controller/Admin/manage_dashboard'); ?>">Dashboard</a>
             </li>
             <li class="active">
               <i class="fa fa-edit"></i> Forms
@@ -235,7 +235,7 @@
 
                     <td><?php echo $row->publisher_id; ?></td>
                     <td><?php echo $row->publisher_name; ?></td>
-                    
+
                     <td><?php echo $row->publisher_website; ?></td>
                     <td><?php echo $row->publisher_email; ?></td>
                     <td><?php echo $row->publisher_contactnum; ?></td>

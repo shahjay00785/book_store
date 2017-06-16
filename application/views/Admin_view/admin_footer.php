@@ -8,6 +8,18 @@
 <script src="<?php echo base_url()?>Assests/Admin_template/js/plugins/morris/morris.min.js"></script>
 <script src="<?php echo base_url()?>Assests/Admin_template/js/plugins/morris/morris-data.js"></script>
 
-</body>
+<script>
+function myFunction() {
+    var x = document.getElementById('myform');
+    if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+        x.style.display='block';
+    } else {
+        x.style.visibility = 'hidden';
+        x.style.display='none';
+    }
+}
+</script>
 
+</body>
 </html>

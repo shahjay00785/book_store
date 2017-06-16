@@ -22,7 +22,7 @@
           </h1>
           <ol class="breadcrumb">
             <li>
-              <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+              <i class="fa fa-dashboard"></i>  <a href="<?php echo base_url('Admin_controller/Admin/manage_dashboard'); ?>">Dashboard</a>
             </li>
             <li class="active">
               <i class="fa fa-edit"></i> Forms
@@ -31,7 +31,7 @@
         </div>
         <div class="col-lg-6">
 
-          <form role="form" id="myform" name="myform" method="post" action="<?php echo base_url(); ?>Admin_controller/Admin/manage_book_master/add" enctype="multipart/form-data">
+          <form role="form" id="myform" name="myform" method="post" action="<?php echo base_url(); ?>Admin_controller/Admin/manage_book_master/add" enctype="multipart/form-data" class="">
 
             <div class="form-group">
               <label>book_master Name</label>
@@ -295,20 +295,22 @@
         </div>
 
         <div class="col-lg-12">
-          <h2>book_master Views <a href="<?php echo base_url('Admin_controller/admin/manage_book_master'); ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/add.png'); ?>" width="50px" height="50px">  </a></h2>
+          <h2>book_master Views
+            <button onclick="myFunction()">Add</button>
+        <!--    <a href="<?php //echo base_url('Admin_controller/admin/manage_book_master'); ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/add.png'); ?>" width="50px" height="50px">  </a></h2> -->
           <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
-                  <th>book_master Id</th>
-                  <th>book_master Name</th>
-                  <th>book_master Category</th>
-                  <th>book img</th>
-                  <th>book isbn</th>
-                  <th>Author Name</th>
+                  <th># Id</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>img</th>
+                  <th>isbn</th>
+                  <th>Author</th>
                   <th>Publisher </th>
                   <th>Price</th>
-                  <th> Available</th>
+                  <th>Available</th>
                   <th>Descrition</th>
                   <th>Delete</th>
                   <th>Update</th>
@@ -380,7 +382,7 @@
               frmvalidator.addValidation("txt_book_master_website","req","Please enter book_master Website");
               frmvalidator.addValidation("txt_book_master_email","req","Please enter book_master Email");
               frmvalidator.addValidation("txt_book_master_desc","req","Please Describe the book_master");
-              frmvalidator.addValidation("txt_male","selone","please select any ");
+              frmvalidator.addValidation("txt_radio_male","selone","please select any ");
 
               </script>
 
