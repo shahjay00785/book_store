@@ -5,7 +5,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-
+			$this->load->view('Admin_view/admin_login_view');
 	}
 
 	public function manage_category($parameter1="",$parameter2=""){
@@ -231,6 +231,45 @@ class Admin extends CI_Controller {
 
 	public function manage_dashboard(){
 			$this->load->view('Admin_view/admin_dashboard');
+	}
+
+	public function manage_user($parameter1="",$parameter2=""){
+		if($parameter1=="add"){
+			$data['user_first_name']=$this->input->post('txt_user_first_name');
+			$data['user_last_name']=$this->input->post('txt_user_last_name');
+			$data['user_gender']=$this->input->post('txt_radio_male');
+			$data['user_email']=$this->input->post('txt_user_email');
+			$data['user_contactnum']=$this->input->post('txt_user_contactnum');
+			$data['user_password']=$this->input->post('txt_user_password');
+			$this->user_model->user_save($data);
+			redirect(base_url().'Admin_controller/Admin/manage_user');
+		}
+
+		if($parameter1=="delete"){
+			$this->user_model->user_delete($parameter2);
+			redirect('Admin_controller/Admin/manage_user');
+		}
+
+		if($parameter1=="edit"){
+			$user_data['edit_user']=$this->user_model->user_edit($parameter2);
+		}
+
+		if($parameter1=="do_update"){
+			$update_data['user_first_name']=$this->input->post('txt_user_first_name');
+			$update_data['user_last_name']=$this->input->post('txt_user_last_name');
+			$update_data['user_gender']=$this->input->post('txt_radio_male');
+			$update_data['user_email']=$this->input->post('txt_user_email');
+			$update_data['user_contactnum']=$this->input->post('txt_user_contactnum');
+			$update_data['user_password']=$this->input->post('txt_user_password');
+			$this->user_model->user_update($parameter2,$update_data);
+			redirect('Admin_controller/Admin/manage_user');
+		}
+		$user_data['users']=$this->user_model->user_view('tbl_user');
+		$this->load->view('Admin_view/user_view',$user_data);
+	}
+
+	public function manage_admin_login(){
+
 	}
 
 }

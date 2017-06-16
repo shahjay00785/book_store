@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class=" login-left">
 				<h3>NEW CUSTOMERS</h3>
 				<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-				<a class="acount-btn" href="register.html">Create an Account</a>
+				<a class="acount-btn" href="<?php echo base_url('User_Controller/user_signup_controller'); ?>">Create an Account</a>
 			</div>
 			<div class="clearfix"> </div>
 		</div>

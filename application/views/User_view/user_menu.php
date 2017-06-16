@@ -6,9 +6,9 @@
       <?php $categories=$this->category_model->category_view();
       foreach ($categories->result() as $row_category) {
         ?>
-        <li class="item1"><a href="#"><?php echo $row_category->cat_name; ?><img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
+        <li class="item1"><a href="#"><?php echo $row_category->cat_name; ?><img class="arrow-img" src="<?php echo base_url('Assests/User_template/images/arrow1.png'); ?>" alt=""/> </a>
           <ul class="cute">
-            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+            <li class="subitem1"><a href="<?php echo base_url('User_Controller/User_product_controller');?>" >Cute Kittens </a></li>
             <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
             <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
           </ul>

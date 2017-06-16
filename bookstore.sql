@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2017 at 05:15 PM
+-- Generation Time: Jun 16, 2017 at 10:00 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -69,10 +69,27 @@ CREATE TABLE `tbl_book_master` (
 
 INSERT INTO `tbl_book_master` (`book_master_id`, `cat_id`, `book_master_name`, `book_master_img`, `author_id`, `publisher_id`, `book_master_isbn`, `book_master_status`, `book_master_desc`, `book_master_price`) VALUES
 (2, 0, '', '', 0, 0, '', '', '', 0),
-(3, 2, 'ac', '', 8, 3, '10000000000', 'No', 'haha', 500),
-(4, 2, 'asd', 'swimlane.png', 8, 3, '', 'No', 'opp', 5000),
 (5, 2, 'asd', '2.jpg', 8, 0, '', 'Yes', '180', 800),
-(6, 2, 'a', '', 8, 3, '1800', 'Yes', 'ac', 2147483647);
+(12, 2, 'new check', 'sandip.png', 0, 0, '', 'Yes', '', 0),
+(14, 2, 'get', 'sandip.png', 0, 0, '', 'Yes', '', 0),
+(15, 2, 'new ', 'sandip.png', 0, 0, '', 'Yes', '', 0),
+(16, 0, 'a', 'sandip.png', 0, 0, '', 'Yes', '', 0),
+(17, 0, 'a', 'sandip.png', 0, 0, '', 'Yes', '', 0),
+(18, 2, 'abc', 'pmj.png', 0, 0, '', 'Yes', '', 0),
+(20, 2, 'abc', 'tcp8.png', 8, 3, '', 'Yes', 'basd', 800),
+(21, 2, 'qb', 'vendor.png', 0, 3, '1800-2500-5055-802', 'Yes', 'dsa', 500);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_book_master_img`
+--
+
+CREATE TABLE `tbl_book_master_img` (
+  `book_master_img_id` int(100) NOT NULL,
+  `book_master_id` int(100) NOT NULL,
+  `book_masrter_img_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -105,15 +122,18 @@ CREATE TABLE `tbl_category` (
   `cat_img` varchar(100) NOT NULL,
   `cat_desc` text NOT NULL,
   `cat_status` varchar(100) NOT NULL,
-  `cat_update_date` date NOT NULL
+  `cat_update_date` date NOT NULL,
+  `cat_parent_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_category`
 --
 
-INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `cat_img`, `cat_desc`, `cat_status`, `cat_update_date`) VALUES
-(2, 'novel', 'Screenshot from 2017-04-15 09-03-43.png', 'novel', 'Yes', '2017-06-14');
+INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `cat_img`, `cat_desc`, `cat_status`, `cat_update_date`, `cat_parent_id`) VALUES
+(2, 'novel', 'Screenshot from 2017-04-15 09-03-43.png', 'novel', 'Yes', '2017-06-14', 0),
+(3, 'd', 'uml1.png', 'ad', 'Yes', '2017-06-15', 0),
+(4, 'books', 'tcp8.png', 'abc', 'Yes', '2017-06-16', 0);
 
 -- --------------------------------------------------------
 
@@ -477,24 +497,16 @@ CREATE TABLE `tbl_user` (
   `user_id` int(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL,
   `user_last_name` varchar(255) NOT NULL,
+  `user_gender` varchar(100) NOT NULL,
   `user_email` varchar(255) NOT NULL,
+  `user_contactnum` double NOT NULL,
   `user_password` varchar(100) NOT NULL,
-  `user_contactnum` varchar(255) NOT NULL,
   `user_address1` varchar(255) NOT NULL,
   `user_address2` varchar(255) NOT NULL,
   `city_id` int(255) NOT NULL,
   `state_id` int(255) NOT NULL,
-  `country_id` int(255) NOT NULL,
-  `college_id` int(255) NOT NULL,
-  `user_status` int(255) NOT NULL
+  `country_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_user`
---
-
-INSERT INTO `tbl_user` (`user_id`, `user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_contactnum`, `user_address1`, `user_address2`, `city_id`, `state_id`, `country_id`, `college_id`, `user_status`) VALUES
-(1, 'jay', 'shah', 'shahjay00785', '1234', '7405407804', '5/461', 'surat', 1, 2, 1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -511,6 +523,12 @@ ALTER TABLE `tbl_author`
 --
 ALTER TABLE `tbl_book_master`
   ADD PRIMARY KEY (`book_master_id`);
+
+--
+-- Indexes for table `tbl_book_master_img`
+--
+ALTER TABLE `tbl_book_master_img`
+  ADD PRIMARY KEY (`book_master_img_id`);
 
 --
 -- Indexes for table `tbl_book_status`
@@ -573,7 +591,12 @@ ALTER TABLE `tbl_author`
 -- AUTO_INCREMENT for table `tbl_book_master`
 --
 ALTER TABLE `tbl_book_master`
-  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `tbl_book_master_img`
+--
+ALTER TABLE `tbl_book_master_img`
+  MODIFY `book_master_img_id` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_book_status`
 --
@@ -583,7 +606,7 @@ ALTER TABLE `tbl_book_status`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_city`
 --
@@ -613,7 +636,7 @@ ALTER TABLE `tbl_state`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
