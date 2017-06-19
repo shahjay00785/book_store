@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 16, 2017 at 10:00 PM
+-- Generation Time: Jun 19, 2017 at 12:08 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -133,7 +133,13 @@ CREATE TABLE `tbl_category` (
 INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `cat_img`, `cat_desc`, `cat_status`, `cat_update_date`, `cat_parent_id`) VALUES
 (2, 'novel', 'Screenshot from 2017-04-15 09-03-43.png', 'novel', 'Yes', '2017-06-14', 0),
 (3, 'd', 'uml1.png', 'ad', 'Yes', '2017-06-15', 0),
-(4, 'books', 'tcp8.png', 'abc', 'Yes', '2017-06-16', 0);
+(5, 'Sahitya', 'pmj.png', 'nice book', 'Yes', '2017-06-19', 2),
+(6, 'gadya', 'pmj.png', 'nice', 'Yes', '2017-06-19', 1),
+(7, 'maths', 'pmj.png', 'nice', 'Yes', '2017-06-19', 1),
+(8, 'trigonometry', 'protocol layer.png', 'new', 'Yes', '2017-06-19', 7),
+(9, 'Gujarati Sahitya', 'Screenshot from 2017-04-15 08-56-05.png', 'nice', 'Yes', '2017-06-19', 5),
+(10, 'Urdu Sahitya', 'pmj.png', 'nice', 'Yes', '2017-06-19', 5),
+(11, 'Gujarati Sahitya 1', 'uml1.png', 'nice ', 'No', '2017-06-19', 9);
 
 -- --------------------------------------------------------
 
@@ -509,6 +515,13 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_email`, `user_contactnum`, `user_password`, `user_address1`, `user_address2`, `city_id`, `state_id`, `country_id`) VALUES
+(1, 'jay', 'shah', 'male', 'shahjay00785@gmail.com', 7405407804, 'jay123', '', '', 0, 0, 0);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -606,7 +619,7 @@ ALTER TABLE `tbl_book_status`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_city`
 --
@@ -636,7 +649,7 @@ ALTER TABLE `tbl_state`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

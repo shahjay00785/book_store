@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Bootstrap Admin Template</title>
+  <title>Login</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="<?php echo base_url('Assests/Admin_template/css/bootstrap.min.css')?>" rel="stylesheet">
@@ -39,7 +39,9 @@
 
   .img-circle {
     border-radius: 50%;
-}
+  }
+
+
   </style>
   <script language="JavaScript" src="<?php echo base_url('Assests/Admin_template/js/gen_validatorv4.js'); ?>" >
   type="text/javascript" xml:space="preserve"></script>
@@ -51,86 +53,79 @@
 
   <div class="navbar-header">
 
-    </button>
+  </button>
 
-  </div>
-  <!-- Top Menu Items -->
-  <ul class="nav navbar-right top-nav">
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-
-  </ul>
+</div>
+<!-- Top Menu Items -->
+<ul class="nav navbar-right top-nav">
+</div>
+</div>
+</a>
+</li>
+</ul>
+</li>
 
 
-    <div id="wrapper">
+</ul>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
 
-            </div>
-            <!-- Top Menu Items -->
+<div id="wrapper">
 
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <!-- /.navbar-collapse -->
-        </nav>
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-              <div class="account_grid">
-          			<div class=" login-right">
-          				<h3>REGISTERED CUSTOMERS</h3>
-          				<p>If you have an account with us, please log in.</p>
-          				<form>
-          					<div>
-          						<span>Email Address<label>*</label></span>
-          						<input type="text">
-          					</div>
-          					<div>
-          						<span>Password<label>*</label></span>
-          						<input type="text">
-          					</div>
-          					<a class="forgot" href="#">Forgot Your Password?</a>
-          					<input type="submit" value="Login">
-          				</form>
-          			</div>
-          			
-          			<div class="clearfix"> </div>
-          		</div>
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
     </div>
-    <!-- /#wrapper -->
+    <!-- Top Menu Items -->
 
-    <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <!-- /.navbar-collapse -->
+  </nav>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+  <div id="page-wrapper">
 
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
+    <div class="container">
+
+      Login
+
+      <form method="post" action="<?php echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
+
+        <br><br>
+        user name
+        <input type="text" name="txt_user_name">
+        <br><br>
+        Password
+        <input type="password" name="txt_user_password">
+        <br><br>
+        <input type="submit" name="btn_submit">
+
+
+      </div>
+      <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- jQuery Version 1.11.0 -->
+  <script src="js/jquery-1.11.0.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Morris Charts JavaScript -->
+  <script src="js/plugins/morris/raphael.min.js"></script>
+  <script src="js/plugins/morris/morris.min.js"></script>
+  <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

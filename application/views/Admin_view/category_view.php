@@ -35,6 +35,7 @@
 
             <div class="form-group">
               <label>Category Name</label>
+              <input type="hidden" id="txt_parent_id" name="txt_parent_id" value="<?php echo $pid; ?>">
               <input type="text" class="form-control" id="txt_category_name" name="txt_category_name">
               <div id='myform_txt_category_name_errorloc' class="error_strings"></div>
               <p class="help-block"></p>
@@ -77,7 +78,8 @@
         }
         else
         {
-          foreach ($categories->result() as  $row_category) {
+
+          foreach ($edit_category->result() as  $row_category) {
             //print_r($row_category);
           }
           ?>
@@ -107,7 +109,7 @@
                 <div class="form-group">
                   <label>Category Image</label>
                   <img src="<?php echo base_url('img/category_img/').$row_category->cat_img; ?>" width='100'>
-                  <input type="file" id="txt_category_img" name="txt_category_img" >
+                  <input type="file" id="txt_category_edit_img" name="txt_category_img" >
                 </div>
 
                 <div class="form-group">
@@ -192,7 +194,7 @@
 
 
                       <td><?php echo $row->cat_id; ?></td>
-                      <td><?php echo $row->cat_name; ?></td>
+                      <td><a href='<?php echo base_url()."Admin_controller/Admin/manage_category/".$row->cat_id; ?>'><?php echo $row->cat_name; ?></td>
                       <td><img src="<?php echo base_url('img/category_img/').$row->cat_img; ?>" width='100'> </td>
                       <td><?php echo $row->cat_desc; ?></td>
                       <td><?php echo $row->cat_status; ?></td>

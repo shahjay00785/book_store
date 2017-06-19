@@ -14,7 +14,7 @@ class Admin extends CI_Controller {
 			$data['cat_desc']=$this->input->post('txt_category_desc');
 			$data['cat_img']=$this->input->post('txt_category_img');
 			$data['cat_status']=$this->input->post('txt_radio_yes');
-			$data['cat_parent_id']=0;
+			$data['cat_parent_id']=$this->input->post('txt_parent_id');
 			$data['cat_update_date']=date('Y-m-d H:i:s');
 
 			if($_FILES["txt_category_img"]["error"]==0)
@@ -34,7 +34,13 @@ class Admin extends CI_Controller {
 			}
 
 			$this->category_model->category_save($data);
-			redirect(base_url().'Admin_controller/Admin/manage_category');
+			if($data['cat_parent_id']=="0")
+			{
+				redirect(base_url().'Admin_controller/Admin/manage_category');
+			}
+			else {
+				redirect(base_url().'Admin_controller/Admin/manage_category/'.$data['cat_parent_id']);
+			}
 		}
 
 		if($parameter1=="delete"){
@@ -70,7 +76,17 @@ class Admin extends CI_Controller {
 			$this->category_model->category_update($parameter2,$update_data);
 			redirect('Admin_controller/Admin/manage_category');
 		}
-		$category_data['categories']=$this->category_model->category_view('tbl_category');
+		//$category_data['categories']=$this->category_model->category_view('tbl_category');
+		if($parameter1=="")
+		{
+			$category_data['pid']=0;
+			$category_data['categories']=$this->db->get_where('tbl_category',array("cat_parent_id"=>0));
+		}
+		else {
+			$category_data['pid']=$parameter1;
+			$category_data['categories']=$this->db->get_where('tbl_category',array("cat_parent_id"=>$parameter1));
+
+		}
 		$this->load->view('Admin_view/category_view',$category_data);
 	}
 
@@ -259,7 +275,6 @@ class Admin extends CI_Controller {
 			$update_data['user_last_name']=$this->input->post('txt_user_last_name');
 			$update_data['user_gender']=$this->input->post('txt_radio_male');
 			$update_data['user_email']=$this->input->post('txt_user_email');
-			$update_data['user_contactnum']=$this->input->post('txt_user_contactnum');
 			$update_data['user_password']=$this->input->post('txt_user_password');
 			$this->user_model->user_update($parameter2,$update_data);
 			redirect('Admin_controller/Admin/manage_user');
@@ -268,8 +283,29 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin_view/user_view',$user_data);
 	}
 
-	public function manage_admin_login(){
+	public function manage_admin_login($parameter1=""){
+			if($parameter1=="check"){
+		/*	$data['user_email'=$this->input->post('txt_user_name');
+			$data['user_contactnum']=$this->input->post('txt_user_name');
+			$data['user_password']=$this->input->post('txt_user_password');
+*/
+	/*		$this->admin_login_model->check($data); */
 
+	$user_email=$this->input->post('txt_user_name');
+	$user_contact=$this->input->post('txt_user_name');
+	$user_password=$this->input->post('txt_user_password');
+
+ $row=$this->db->query("select * from tbl_user where user_email='".$user_email."' and user_password='".$user_password."'  ");
+ //print_r($row);
+	if($row->num_rows==0){
+		  redirect('Admin_controller/Admin/mange_da');
+	}
+	else{
+		echo "fail";
+	}
+
+
+			}
 	}
 
 }
