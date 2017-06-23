@@ -23,7 +23,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 	<!--header-->
-		<?php echo include_once('user_header.php'); ?>
+	<?php echo include_once('user_header.php'); ?>
 	<!---->
 	<div class="container">
 
@@ -31,14 +31,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class=" login-right">
 				<h3>REGISTERED CUSTOMERS</h3>
 				<p>If you have an account with us, please log in.</p>
-				<form>
+				<form role="form" id="myform" name="myform" method="post" action="<?php echo base_url(); ?>User_Controller/User_login_controller/manage_login/check" enctype="multipart/form-data">
+				<?php
+				if(isset($login_data)){
+					echo 	"<div>".$msg."</div>";
+				}
+			?>
 					<div>
 						<span>Email Address<label>*</label></span>
-						<input type="text">
+						<input type="text" name="txt_user_name">
 					</div>
 					<div>
 						<span>Password<label>*</label></span>
-						<input type="text">
+						<input type="password" name="txt_user_password">
 					</div>
 					<a class="forgot" href="#">Forgot Your Password?</a>
 					<input type="submit" value="Login">

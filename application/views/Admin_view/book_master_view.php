@@ -136,7 +136,7 @@
         }
         else
         {
-          foreach ($book_masters->result() as  $row_book_master) {
+          foreach ($edit_book_master->result() as  $row_book_master) {
             //print_r($row_book_master);
           }
           ?>

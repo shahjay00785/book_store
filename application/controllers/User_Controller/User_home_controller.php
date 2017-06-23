@@ -1,4 +1,5 @@
 <?php
+session_start();
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_home_controller extends CI_Controller {

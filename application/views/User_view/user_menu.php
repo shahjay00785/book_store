@@ -22,7 +22,8 @@
                 <?php foreach ($parent_res->result() as $row_sub_cat) {
                 ?>
                   <li class="subitem1">
-                    <a href="<?php echo base_url('User_Controller/User_product_controller');?>" ><?php echo $row_sub_cat->cat_name; ?> </a></li>
+
+                    <a href="<?php echo base_url('User_Controller/User_product_controller/product_by_subcat/').$row_sub_cat->cat_id;?>" ><?php echo $row_sub_cat->cat_name; ?> </a></li>
 
                 <?php
               }

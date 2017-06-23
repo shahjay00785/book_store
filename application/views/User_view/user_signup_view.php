@@ -28,18 +28,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container">
 
 		<div class="register">
-		  	  <form>
+<form role="form" id="myform" name="myform" method="post" action="<?php echo base_url(); ?>User_Controller/User_signup_controller/manage_user/add" enctype="multipart/form-data">
 				 <div class="  register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
 					<div class="mation">
 						<span>First Name<label>*</label></span>
-						<input type="text">
+						<input type="text" name="txt_user_first_name">
 
 						<span>Last Name<label>*</label></span>
-						<input type="text">
+						<input type="text" name="txt_user_last_name">
 
 						 <span>Email Address<label>*</label></span>
-						 <input type="text">
+						 <input type="text" name="txt_user_email">
+
+						 <span>Moblie Number<label>*</label></span>
+						 <input type="text" name="txt_user_contactnum">
+
 					</div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
@@ -50,15 +54,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						    <h3>LOGIN INFORMATION</h3>
 							<div class="mation">
 								<span>Password<label>*</label></span>
-								<input type="text">
+								<input type="password" name="txt_user_password">
 								<span>Confirm Password<label>*</label></span>
-								<input type="text">
+								<input type="password" name="txt_user_password">
 							</div>
 					 </div>
-				</form>
 				<div class="clearfix"> </div>
 				<div class="register-but">
-				   <form>
+
 					   <input type="submit" value="submit">
 					   <div class="clearfix"> </div>
 				   </form>

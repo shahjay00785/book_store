@@ -49,10 +49,34 @@
 				<div class="clearfix"> </div>
 			</div>
 			<div class="header-bottom-right">
-				<div class="account"><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>YOUR ACCOUNT</a></div>
+				<div class="account"><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>
+					<?php
+					if(isset($_SESSION["useremail"])){
+						echo $_SESSION["useremail"];
+					}
+					else{
+						echo "Your Account";
+					}
+					?>
+				</a></div>
 				<ul class="login">
+					<?php
+
+					if(isset($_SESSION["useremail"])){
+						?>
+					<li>
+						<a href="<?php echo base_url('User_Controller/user_login_controller/manage_logout/logout'); ?>">Logout</a></li>
+						<?php
+					}
+					else {
+					?>
 					<li><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>LOGIN</a></li> |
 					<li ><a href="<?php echo base_url('User_Controller/user_signup_controller'); ?>">SIGNUP</a></li>
+				
+					<?php
+					}
+					?>
+
 				</ul>
 				<div class="cart"><a href="#"><span> </span>CART</a></div>
 				<div class="clearfix"> </div>

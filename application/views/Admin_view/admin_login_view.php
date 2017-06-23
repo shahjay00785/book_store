@@ -94,6 +94,12 @@
     <div class="container">
 
       Login
+      <br>
+      <?php if(isset($msg))
+      {
+        echo $msg;
+      }
+      ?>
 
       <form method="post" action="<?php echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
 

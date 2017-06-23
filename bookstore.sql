@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2017 at 12:08 PM
+-- Generation Time: Jun 23, 2017 at 04:32 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -42,7 +42,9 @@ CREATE TABLE `tbl_author` (
 --
 
 INSERT INTO `tbl_author` (`author_id`, `author_name`, `author_gender`, `author_email`, `author_contactnum`, `author_website`, `author_desc`, `author_status`) VALUES
-(8, 'vivek', 'male', 'vivek@gmail.com', 74054, 'vivek.com', 'viv', 'Yes');
+(1, 'Upamanyu Chatterjee', 'male', 'UpamanyuChatterjee@gmail.com', 9429010779, 'www.Upamanyu Chatterjee.com', 'Indian author', 'Yes'),
+(2, 'Khushwant Singh', 'male', 'KhushwantSingh@gmail.com', 992414455, 'www.KhushwantSingh.com', 'good', 'Yes'),
+(3, 'Mahabir Singh', 'male', 'Mahabir Singh2gmail.com', 4565626523, 'asdsada', 'good', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -68,16 +70,12 @@ CREATE TABLE `tbl_book_master` (
 --
 
 INSERT INTO `tbl_book_master` (`book_master_id`, `cat_id`, `book_master_name`, `book_master_img`, `author_id`, `publisher_id`, `book_master_isbn`, `book_master_status`, `book_master_desc`, `book_master_price`) VALUES
-(2, 0, '', '', 0, 0, '', '', '', 0),
-(5, 2, 'asd', '2.jpg', 8, 0, '', 'Yes', '180', 800),
-(12, 2, 'new check', 'sandip.png', 0, 0, '', 'Yes', '', 0),
-(14, 2, 'get', 'sandip.png', 0, 0, '', 'Yes', '', 0),
-(15, 2, 'new ', 'sandip.png', 0, 0, '', 'Yes', '', 0),
-(16, 0, 'a', 'sandip.png', 0, 0, '', 'Yes', '', 0),
-(17, 0, 'a', 'sandip.png', 0, 0, '', 'Yes', '', 0),
-(18, 2, 'abc', 'pmj.png', 0, 0, '', 'Yes', '', 0),
-(20, 2, 'abc', 'tcp8.png', 8, 3, '', 'Yes', 'basd', 800),
-(21, 2, 'qb', 'vendor.png', 0, 3, '1800-2500-5055-802', 'Yes', 'dsa', 500);
+(1, 3, 'This Is Not Your Story', 'friction_novel.jpg', 3, 1, '1800-2500-5055-802', 'Yes', 'good novel', 500),
+(2, 2, 'Believe in Yourself ', 'romantic.jpg', 2, 1, '6505150565', 'Yes', 'saxd', 500),
+(3, 2, 'The Power of your Subconscious Mind', 'romantic2.jpg', 3, 1, '9820545', 'Yes', 'saddsa', 500),
+(4, 3, 'The Girl of My Dreams', 'fiction.jpg', 3, 1, '450055', 'Yes', 'novel', 200),
+(5, 4, '10th maths book', 'math2.jpg', 1, 2, '1800-2500-5055-802', 'Yes', 'arhint book', 505),
+(6, 5, '10th science book', 'science2.jpg', 1, 2, '1825-2842-2582', 'Yes', 'science book', 400);
 
 -- --------------------------------------------------------
 
@@ -131,15 +129,12 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `cat_img`, `cat_desc`, `cat_status`, `cat_update_date`, `cat_parent_id`) VALUES
-(2, 'novel', 'Screenshot from 2017-04-15 09-03-43.png', 'novel', 'Yes', '2017-06-14', 0),
-(3, 'd', 'uml1.png', 'ad', 'Yes', '2017-06-15', 0),
-(5, 'Sahitya', 'pmj.png', 'nice book', 'Yes', '2017-06-19', 2),
-(6, 'gadya', 'pmj.png', 'nice', 'Yes', '2017-06-19', 1),
-(7, 'maths', 'pmj.png', 'nice', 'Yes', '2017-06-19', 1),
-(8, 'trigonometry', 'protocol layer.png', 'new', 'Yes', '2017-06-19', 7),
-(9, 'Gujarati Sahitya', 'Screenshot from 2017-04-15 08-56-05.png', 'nice', 'Yes', '2017-06-19', 5),
-(10, 'Urdu Sahitya', 'pmj.png', 'nice', 'Yes', '2017-06-19', 5),
-(11, 'Gujarati Sahitya 1', 'uml1.png', 'nice ', 'No', '2017-06-19', 9);
+(1, 'Novel', 'delivery.png', 'abc', 'Yes', '2017-06-23', 0),
+(2, 'Romatic', 'tcp8.png', 'romance', 'Yes', '2017-06-23', 1),
+(3, 'fiction', 'uml2.png', 'fiction', 'Yes', '2017-06-23', 1),
+(4, 'book', 'delivery.png', 'book', 'Yes', '2017-06-23', 0),
+(5, 'science', 'delivery.png', 'science', 'Yes', '2017-06-23', 4),
+(6, 'Maths', 'uml2.png', 'maths', 'Yes', '2017-06-23', 4);
 
 -- --------------------------------------------------------
 
@@ -471,7 +466,8 @@ CREATE TABLE `tbl_publisher` (
 --
 
 INSERT INTO `tbl_publisher` (`publisher_id`, `publisher_name`, `publisher_email`, `publisher_contactnum`, `publisher_website`, `publisher_desc`, `publisher_status`) VALUES
-(3, 'tata', 'tat', 740, 'tata.com', 'tata', 'Yes');
+(1, 'M TYRA', 'M TYRA.com', 842512420, 'M TYRA', 'indian', 'Yes'),
+(2, 'Arihant experts', 'Arihant experts@gmail.com', 9856565, 'www.Arihant experts.com', 'indian other', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -503,7 +499,7 @@ CREATE TABLE `tbl_user` (
   `user_id` int(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL,
   `user_last_name` varchar(255) NOT NULL,
-  `user_gender` varchar(100) NOT NULL,
+  `user_gender` varchar(100) DEFAULT NULL,
   `user_email` varchar(255) NOT NULL,
   `user_contactnum` double NOT NULL,
   `user_password` varchar(100) NOT NULL,
@@ -519,7 +515,17 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_email`, `user_contactnum`, `user_password`, `user_address1`, `user_address2`, `city_id`, `state_id`, `country_id`) VALUES
-(1, 'jay', 'shah', 'male', 'shahjay00785@gmail.com', 7405407804, 'jay123', '', '', 0, 0, 0);
+(1, 'jay', 'shah', 'male', 'shahjay00785@gmail.com', 7405407804, 'jay123', '', '', 0, 0, 0),
+(2, 'jay', 'shah', NULL, 'shahjay00785@gmail.com', 7405407804, 'jay123', '', '', 0, 0, 0),
+(3, 'JAY', 'SHAH', NULL, 'shahjay00785@gmail.com', 7405407804, '2451074', '', '', 0, 0, 0),
+(4, 'jay', 'shah', NULL, 'shahjay00785@gmail.com', 7405407804, '2451074', '', '', 0, 0, 0),
+(5, 'RAMESH', 'SHAH', NULL, 'RAMESH@GMAIL.COM', 7405407804, '45210', '', '', 0, 0, 0),
+(6, 'RAMESH', 'SHAH', NULL, 'RAMESH@GMAIL.COM', 7405407804, '123', '', '', 0, 0, 0),
+(7, 'raj', 'raj', NULL, 'raj@gmail.com', 7405407804, '0794b4c809275278392b42a91839a4ab', '', '', 0, 0, 0),
+(8, 'kajal', 'shah', NULL, 'shahkajal912@gmail.com', 940292015205, 'ramesh', '', '', 0, 0, 0),
+(9, 'abc', 'abc', NULL, 'abc', 0, 'abc', '', '', 0, 0, 0),
+(10, 'ramesh', 'sharm', NULL, 'ramesh@gmail.com', 0, '0794b4c809275278392b42a91839a4ab', '', '', 0, 0, 0),
+(11, 'ramesh', 'shah', NULL, 'shahjay00785@gmail.com', 7405407804, '0794b4c809275278392b42a91839a4ab', '', '', 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -599,12 +605,12 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_author`
 --
 ALTER TABLE `tbl_author`
-  MODIFY `author_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `author_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_book_master`
 --
 ALTER TABLE `tbl_book_master`
-  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_book_master_img`
 --
@@ -619,7 +625,7 @@ ALTER TABLE `tbl_book_status`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_city`
 --
@@ -639,7 +645,7 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_publisher`
 --
 ALTER TABLE `tbl_publisher`
-  MODIFY `publisher_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `publisher_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_state`
 --
@@ -649,7 +655,7 @@ ALTER TABLE `tbl_state`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

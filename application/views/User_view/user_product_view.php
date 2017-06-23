@@ -27,152 +27,57 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!---->
 	<div class="container">
 
-    <div class="women-product">
-  		<div class=" w_content">
-  			<div class="women">
-  				<a href="#"><h4>Enthecwear - <span>4449 itemms</span> </h4></a>
-  				<ul class="w_nav">
-  					<li>Sort : </li>
-  			     	<li><a class="active" href="#">popular</a></li> |
-  			     	<li><a href="#">new </a></li> |
-  			     	<li><a href="#">discount</a></li> |
-  			     	<li><a href="#">price: Low High </a></li>
-  			     <div class="clearfix"> </div>
-  			     </ul>
-  			     <div class="clearfix"> </div>
-  			</div>
-  		</div>
-  		<!-- grids_of_4 -->
-  		<div class="grid-product">
-  		  <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic13.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				</div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                </div>
-  			 <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic2.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                   </div>
-  			 <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic3.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                   </div>
-  		  <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic4.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                </div>
-  			 <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic6.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                   </div>
-  			 <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic7.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                   </div>
-  		  <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic8.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                </div>
-  			 <div class="  product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic11.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                   </div>
-  			 <div class=" product-grid">
-  			<div class="content_box"><a href="single.html">
-  			   	<div class="left-grid-view grid-view-left">
-  			   	   	 <img src="images/pic12.jpg" class="img-responsive watch-right" alt=""/>
-  				   	   	<div class="mask">
-  	                        <div class="info">Quick View</div>
-  			            </div>
-  				   	  </a>
-  				   </div>
-  				    <h4><a href="#"> Duis autem</a></h4>
-  				     <p>It is a long established fact that a reader</p>
-  				     Rs. 499
-  			   	</div>
-                   </div>
-  			<div class="clearfix"> </div>
-  		</div>
-  	</div>
+		<div class="women-product">
+			<div class=" w_content">
+				<div class="women">
+					<a href="#"><h4>Books - <span><?php $count=$this->book_master_model->book_master_view();
+					echo $count->num_rows(); ?></span> </h4></a>
+					<ul class="w_nav">
+						<li>Sort : </li>
+				     	<li><a class="active" href="#">popular</a></li> |
+				     	<li><a href="#">new </a></li> |
+				     	<li><a href="#">discount</a></li> |
+				     	<li><a href="#">price: Low High </a></li>
+				     <div class="clearfix"> </div>
+				     </ul>
+				     <div class="clearfix"> </div>
+				</div>
+			</div>
+			<!-- grids_of_4 -->
+
+			<?php echo $sub_cat_id; ?>
+			<div class="grid-product">
+				<?php
+
+						$products=$this->book_master_model->book_master_sub_view($sub_cat_id);
+						foreach ($products->result() as $row_product) {
+				?>
+				<div class=" product-grid">
+				 <div class="content_box"><a href="single.html">
+					<div class="left-grid-view grid-view-left">
+							 <img src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" class="img-responsive watch-right" style="padding-right:10px" alt=""  />
+								<div class="mask">
+													<div class="info">Quick View</div>
+									</div>
+							</a>
+					 </div>
+						<h4><a href="#"> <?php echo $row_product->book_master_name; ?></a></h4>
+						 <p><?php echo $row_product->book_master_desc; ?></p>
+						 <?php echo $row_product->book_master_price; ?>
+					</div>
+
+				</div>
+
+				<?php
+						}
+				 ?>
+
+		 </div>
+		</div>
+
+
+
+
 		<?php echo include_once('user_menu.php'); ?>
 
 
