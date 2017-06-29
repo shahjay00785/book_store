@@ -5023,6 +5023,11 @@ a.list-group-item-danger.active:focus {
 .panel-danger {
   border-color: #ebccd1;
 }
+select1 {
+  background: transparent;
+}
+
+
 .panel-danger > .panel-heading {
   color: #a94442;
   background-color: #f2dede;

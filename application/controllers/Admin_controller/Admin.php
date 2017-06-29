@@ -329,38 +329,65 @@ class Admin extends CI_Controller {
 	public function manage_admin_login($parameter1=""){
 
 
-			if($parameter1=="check"){
-				/*	$data['user_email'=$this->input->post('txt_user_name');
-				$data['user_contactnum']=$this->input->post('txt_user_name');
-				$data['user_password']=$this->input->post('txt_user_password');
-				*/
-				/*		$this->admin_login_model->check($data); */
+		if($parameter1=="check"){
+			/*	$data['user_email'=$this->input->post('txt_user_name');
+			$data['user_contactnum']=$this->input->post('txt_user_name');
+			$data['user_password']=$this->input->post('txt_user_password');
+			*/
+			/*		$this->admin_login_model->check($data); */
 
-				$user_email=$this->input->post('txt_user_name');
-				$user_password=$this->input->post('txt_user_password');
+			$user_email=$this->input->post('txt_user_name');
+			$user_password=$this->input->post('txt_user_password');
 
-				$login_resultset=$this->db->query("select * from tbl_user where user_email='".$user_email."' and user_password='".$user_password."'  ");
-				//print_r($row);
-				if($login_resultset->num_rows()>0){
-					$_SESSION["useremail"]=$user_email;
-					redirect('Admin_controller/Admin/manage_dashboard');
-				}
-				else{
-					$login_data['msg']="Invalid username or Password";
-					$this->load->view('Admin_view/admin_login_view',$login_data);
-				}
-
+			$login_resultset=$this->db->query("select * from tbl_user where user_email='".$user_email."' and user_password='".$user_password."'  ");
+			//print_r($row);
+			if($login_resultset->num_rows()>0){
+				$_SESSION["useremail"]=$user_email;
+				redirect('Admin_controller/Admin/manage_dashboard');
 			}
+			else{
+				$login_data['msg']="Invalid username or Password";
+				$this->load->view('Admin_view/admin_login_view',$login_data);
+			}
+
+		}
 
 
 	}
-
-
 	public function manage_logout($parameter1=""){
 		if($parameter1=="logout"){
 			session_destroy();
 			redirect(base_url().'Admin_controller/Admin');
 		}
+	}
+
+
+
+	public function manage_country($parameter1="",$parameter2=""){
+		if($parameter1=="add"){
+			$data['country_code']=$this->input->post('txt_country_code');
+			$data['country_name']=$this->input->post('txt_country_name');
+			$this->db->insert('tbl_country',$data);
+			redirect('Admin_controller/Admin/manage_country');
+		}
+		if($parameter1=="delete"){
+			$this->db->where('country_id',$parameter2);
+			$this->db->delete('tbl_country');
+			redirect('Admin_controller/Admin/manage_country');
+		}
+		if($parameter1=="edit"){
+			$this->db->where('country_id',$parameter2);
+			$country_data['edit_countries']=$this->db->get('tbl_country');
+		}
+		if($parameter1=="do_update"){
+			$update_data['country_code']=$this->input->post('txt_country_code');
+			$update_data['country_name']=$this->input->post('txt_country_name');
+			$this->db->where('country_id',$parameter2);
+			$this->db->update('tbl_country',$update_data);
+			redirect('Admin_controller/Admin/manage_country');
+		}
+		$country_data['countries']=$this->db->get('tbl_country');
+		$this->load->view('Admin_view/country_view',$country_data);
 	}
 
 }
