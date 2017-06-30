@@ -22,69 +22,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
   <!--header-->
-  <div class="header">
-    <div class="top-header">
-      <div class="container">
-        <div class="top-header-left">
-          <ul class="support">
-            <li><a href="#"><label> </label></a></li>
-            <li><a href="#">24x7 live<span class="live"> support</span></a></li>
-          </ul>
-          <ul class="support">
-            <li class="van"><a href="#"><label> </label></a></li>
-            <li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
-          </ul>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="top-header-right">
-          <div class="down-top">
-            <select class="in-drop">
-              <option value="English" class="in-of">English</option>
-              <option value="Japanese" class="in-of">Japanese</option>
-              <option value="French" class="in-of">French</option>
-              <option value="German" class="in-of">German</option>
-            </select>
-          </div>
-          <div class="down-top top-down">
-            <select class="in-drop">
-
-              <option value="Dollar" class="in-of">Dollar</option>
-              <option value="Yen" class="in-of">Yen</option>
-              <option value="Euro" class="in-of">Euro</option>
-            </select>
-          </div>
-          <!---->
-          <div class="clearfix"> </div>
-        </div>
-        <div class="clearfix"> </div>
-      </div>
-    </div>
-    <div class="bottom-header">
-      <div class="container">
-        <div class="header-bottom-left">
-          <div class="logo">
-            <a href="<?php echo base_url('User_Controller/user_home_controller'); ?>"><img src="<?php echo base_url('Assests/User_template/images/logo.png'); ?>" alt=" " /></a>
-          </div>
-          <div class="search">
-            <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-            <input type="submit"  value="SEARCH">
-
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="header-bottom-right">
-          <div class="account"><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>YOUR ACCOUNT</a></div>
-          <ul class="login">
-            <li><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>LOGIN</a></li> |
-            <li ><a href="<?php echo base_url('User_Controller/user_singup_controller'); ?>">SIGNUP</a></li>
-          </ul>
-          <div class="cart"><a href="#"><span> </span>CART</a></div>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="clearfix"> </div>
-      </div>
-    </div>
-  </div>
+  <?php
+  include_once('user_header.php'); ?>
   <!---->
   <div class="container">
     <div class="women-product">
@@ -107,127 +46,83 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <!---- ONE PRODUCT--->
 
       <?php
-      $products=$this->book_master_model->book_master_view();
-      foreach ($products->result() as $row_product) {
+      //  $products=$this->book_master_model->book_master_view();
+      //  foreach ($products->result() as $row_product) {
       ?>
-      <div class="grid-product">
-        <div class="  product-grid">
-          <div class="content_box"><a href="single.html">
-    			   	<div class="left-grid-view grid-view-left">
-    			   	   	 <img src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" class="img-responsive watch-right" alt=""/>
-    				   	   	<div class="mask">
-    	                        <div class="info">Quick View</div>
-    			            </div>
-    				   	  </a>
-    				</div>
-          <h4><a href="#"><?php echo $row_product->book_master_name; ?></a></h4>
-          <p><?php echo $row_product->book_master_desc; ?></p>
-          Rs.<?php echo $row_product->book_master_price; ?>
-        </div>
-      </div>
+      <!--  <div class="grid-product">
+      <div class="  product-grid">
+      <div class="content_box"><a href="single.html">
+      <div class="left-grid-view grid-view-left">
+      <img src="<?php //echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" class="img-responsive watch-right" alt=""/>
+      <div class="mask">
+      <div class="info">Quick View</div>
     </div>
-    <?php  } ?>
-    <!----ONE PRODUCT END-->
+  </a>
+</div>
+<h4><a href="#"><?php //echo $row_product->book_master_name; ?></a></h4>
+<p><?php //echo $row_product->book_master_desc; ?></p>
+Rs.<?php //echo $row_product->book_master_price; ?>
+</div>
+</div>
+</div>
+-->
+<?php  //} ?>
+<!----ONE PRODUCT END-->
 
-  </div>
+
+<div class="product-left">
+  <?php
+  $products=$this->book_master_model->book_master_view();
+  foreach ($products->result() as $row_product) {
+    ?>
 
 
-
-
-  <!---- start menu--->
-  <?php include('user_menu.php'); ?>
-
-
-  <!----start footer-->
-  <div class="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="latter">
-          <h6>NEWS-LETTER</h6>
-          <div class="sub-left-right">
-            <form>
-              <input type="text" value="Enter email here"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}" />
-              <input type="submit" value="SUBSCRIBE" />
-            </form>
+    <div class="col-md-4 chain-grid">
+      <a href="single.html"><img class="img-responsive chain" src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" alt=" " /></a>
+      <span class="star"> </span>
+      <div class="grid-chain-bottom">
+        <h6><a href="single.html"><?php echo $row_product->book_master_name; ?></a></h6>
+        <div class="star-price">
+          <div class="dolor-grid">
+            <span class="actual">Rs.<?php echo $row_product->book_master_price; ?></span>
+            <span class="reducedfrom">400$</span>
+            <span class="rating">
+              <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+              <label for="rating-input-1-5" class="rating-star1"> </label>
+              <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+              <label for="rating-input-1-4" class="rating-star1"> </label>
+              <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+              <label for="rating-input-1-3" class="rating-star"> </label>
+              <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+              <label for="rating-input-1-2" class="rating-star"> </label>
+              <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+              <label for="rating-input-1-1" class="rating-star"> </label>
+            </span>
           </div>
+          <a class="now-get get-cart" href="#">ADD TO CART</a>
           <div class="clearfix"> </div>
         </div>
-        <div class="latter-right">
-          <p>FOLLOW US</p>
-          <ul class="face-in-to">
-            <li><a href="#"><span> </span></a></li>
-            <li><a href="#"><span class="facebook-in"> </span></a></li>
-            <div class="clearfix"> </div>
-          </ul>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="clearfix"> </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="footer-bottom-cate">
-          <h6>CATEGORIES</h6>
-          <ul>
-            <li><a href="#">Curabitur sapien</a></li>
-            <li><a href="#">Dignissim purus</a></li>
-            <li><a href="#">Tempus pretium</a></li>
-            <li ><a href="#">Dignissim neque</a></li>
-            <li ><a href="#">Ornared id aliquet</a></li>
-            <li><a href="#">Ultrices id du</a></li>
-            <li><a href="#">Commodo sit</a></li>
-            <li ><a href="#">Urna ac tortor sc</a></li>
-            <li><a href="#">Ornared id aliquet</a></li>
-            <li><a href="#">Urna ac tortor sc</a></li>
-            <li ><a href="#">Eget nisi laoreet</a></li>
-            <li ><a href="#">Faciisis ornare</a></li>
-          </ul>
-        </div>
-        <div class="footer-bottom-cate bottom-grid-cat">
-          <h6>FEATURE PROJECTS</h6>
-          <ul>
-            <li><a href="#">Curabitur sapien</a></li>
-            <li><a href="#">Dignissim purus</a></li>
-            <li><a href="#">Tempus pretium</a></li>
-            <li ><a href="#">Dignissim neque</a></li>
-            <li ><a href="#">Ornared id aliquet</a></li>
-            <li><a href="#">Ultrices id du</a></li>
-            <li><a href="#">Commodo sit</a></li>
-          </ul>
-        </div>
-        <div class="footer-bottom-cate">
-          <h6>TOP BRANDS</h6>
-          <ul>
-            <li><a href="#">Curabitur sapien</a></li>
-            <li><a href="#">Dignissim purus</a></li>
-            <li><a href="#">Tempus pretium</a></li>
-            <li ><a href="#">Dignissim neque</a></li>
-            <li ><a href="#">Ornared id aliquet</a></li>
-            <li><a href="#">Ultrices id du</a></li>
-            <li><a href="#">Commodo sit</a></li>
-            <li ><a href="#">Urna ac tortor sc</a></li>
-            <li><a href="#">Ornared id aliquet</a></li>
-            <li><a href="#">Urna ac tortor sc</a></li>
-            <li ><a href="#">Eget nisi laoreet</a></li>
-            <li ><a href="#">Faciisis ornare</a></li>
-          </ul>
-        </div>
-        <div class="footer-bottom-cate cate-bottom">
-          <h6>OUR ADDERSS</h6>
-          <ul>
-            <li>Aliquam metus  dui. </li>
-            <li>orci, ornareidquet</li>
-            <li> ut,DUI.</li>
-            <li >nisi, dignissim</li>
-            <li >gravida at.</li>
-            <li class="phone">PH : 6985792466</li>
-            <li class="temp"> <p class="footer-class">Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p></li>
-          </ul>
-        </div>
-        <div class="clearfix"> </div>
-      </div>
-    </div>
+
+    <?php  } ?>
+    <div class="clearfix"> </div>
   </div>
-  <!----end footer-->
+  <div class="clearfix"> </div>
+
+
+</div>
+
+
+
+<!---- start menu--->
+<?php include('user_menu.php'); ?>
+
+
+<!----start footer-->
+<?php
+include_once('user_footer.php');
+?>
+<!----end footer-->
 </body>
 </html>
