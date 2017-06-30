@@ -43,7 +43,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 				<div class="col-md-4 chain-grid">
-		      <a href="single.html"><img class="img-responsive chain" src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" alt=" " /></a>
+
+		    <a href="<?php echo base_url('User_Controller/User_product_controller/product_full/').$row_product->book_master_id; ?>"><img class="img-responsive chain" src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" alt=" " /></a>
 		      <span class="star"> </span>
 		      <div class="grid-chain-bottom">
 		        <h6><a href="single.html"><?php echo $row_product->book_master_name; ?></a></h6>

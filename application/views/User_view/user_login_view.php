@@ -25,6 +25,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <!---->
   <div class="container">
 
+    	<?php
+      if(!isset($_SESSION["useremail"])){
+      ?>
     <div class="account_grid">
       <div class=" login-right">
         <h3>REGISTERED CUSTOMERS</h3>
@@ -55,6 +58,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       </div>
       <div class="clearfix"> </div>
     </div>
+
+     <?php
+    }
+    else { ?>
+
+
+
+      <?php echo "details of users"; } ?>
     <!--- MENU-->
       <?php echo include_once('user_menu.php'); ?>
     <!--MENU-->

@@ -42,14 +42,14 @@
 					<a href="<?php echo base_url('User_Controller/user_home_controller'); ?>"><img src="<?php echo base_url('Assests/User_template/images/logo.png'); ?>" alt=" " /></a>
 				</div>
 				<div class="search">
-					<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+					<input type="text" id="txt_search name="txt_search" value="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  onkeyup="getgoogle()">
 					<input type="submit"  value="SEARCH">
 
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="header-bottom-right">
-				<div class="account"><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>
+				<div class="account"><a href="<?php echo base_url('User_Controller/User_login_controller'); ?>"><span> </span>
 					<?php
 					if(isset($_SESSION["useremail"])){
 						echo $_SESSION["useremail"];
@@ -64,24 +64,24 @@
 
 					if(isset($_SESSION["useremail"])){
 						?>
-					<li>
-						<a href="<?php echo base_url('User_Controller/user_login_controller/manage_logout/logout'); ?>">Logout</a></li>
-						<?php
-					}
-					else {
-					?>
-					<li><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>LOGIN</a></li> |
-					<li ><a href="<?php echo base_url('User_Controller/user_signup_controller'); ?>">SIGNUP</a></li>
+						<li>
+							<a href="<?php echo base_url('User_Controller/user_login_controller/manage_logout/logout'); ?>">Logout</a></li>
+							<?php
+						}
+						else {
+							?>
+							<li><a href="<?php echo base_url('User_Controller/user_login_controller'); ?>"><span> </span>LOGIN</a></li> |
+							<li ><a href="<?php echo base_url('User_Controller/user_signup_controller'); ?>">SIGNUP</a></li>
 
-					<?php
-					}
-					?>
+							<?php
+						}
+						?>
 
-				</ul>
-				<div class="cart"><a href="#"><span> </span>CART</a></div>
+					</ul>
+					<div class="cart"><a href="#"><span> </span>CART</a></div>
+					<div class="clearfix"> </div>
+				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="clearfix"> </div>
 		</div>
 	</div>
-</div>

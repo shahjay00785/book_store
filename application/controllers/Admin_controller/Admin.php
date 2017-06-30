@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 			}
 
 			if($parameter1=="delete"){
-				$this->category_model->category_delete($parameter2);
+	1			$this->category_model->category_delete($parameter2);
 				redirect('Admin_controller/Admin/manage_category');
 			}
 
