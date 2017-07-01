@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 			}
 
 			if($parameter1=="delete"){
-	1			$this->category_model->category_delete($parameter2);
+				$this->category_model->category_delete($parameter2);
 				redirect('Admin_controller/Admin/manage_category');
 			}
 
@@ -388,6 +388,11 @@ class Admin extends CI_Controller {
 		}
 		$country_data['countries']=$this->db->get('tbl_country');
 		$this->load->view('Admin_view/country_view',$country_data);
+	}
+
+
+	public function search_bar(){
+		$this->load->view('Admin_view/search_view');
 	}
 
 }

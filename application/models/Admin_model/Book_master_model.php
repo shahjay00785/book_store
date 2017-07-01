@@ -36,7 +36,7 @@ class book_master_model extends CI_Model{
     $this->db->join('tbl_author','tbl_author.author_id=tbl_book_master.author_id');
     $this->db->join('tbl_publisher','tbl_publisher.publisher_id=tbl_book_master.publisher_id');
     $this->db->join('tbl_category','tbl_category.cat_id=tbl_book_master.cat_id');
-    return $this->db->get('tbl_book_master',$id);
+    return $this->db->get('tbl_book_master');
   }
 
 

@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			<?php
 				foreach($pdata->result() as  $row_data) {
- }
+				}
 			?>
 			<div class="single_grid">
 				<div class="grid images_3_of_2">
@@ -98,9 +98,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</ul>
 					</div>
 
-					,?
-				</div>
 
+				</div>
+				<? } ?>
 				<div class="clearfix"> </div>
 			</div>
 			<ul id="flexiselDemo1">
