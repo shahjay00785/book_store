@@ -163,7 +163,7 @@
                   <tr>
                     <th>Category Id</th>
                     <th>Category Name</th>
-                    <th>Category Image</th>
+                <!--    <th>Category Image</th> -->
                     <th>Category Descrition</th>
                     <th>Categor Available</th>
                     <th>Category Update Date</th>
@@ -195,7 +195,7 @@
 
                       <td><?php echo $row->cat_id; ?></td>
                       <td><a href='<?php echo base_url()."Admin_controller/Admin/manage_category/".$row->cat_id; ?>'><?php echo $row->cat_name; ?></td>
-                      <td><img src="<?php echo base_url('img/category_img/').$row->cat_img; ?>" width='100'> </td>
+                  <!--    <td><img src="<?php //echo base_url('img/category_img/').$row->cat_img; ?>" width='100'> </td> -->
                       <td><?php echo $row->cat_desc; ?></td>
                       <td><?php echo $row->cat_status; ?></td>
                       <td><?php echo $row->cat_update_date; ?></td>
@@ -225,7 +225,7 @@
                 frmvalidator.EnableOnPageErrorDisplay();
                 frmvalidator.EnableMsgsTogether();
                 frmvalidator.addValidation("txt_category_name","req","Please enter Category Name");
-                frmvalidator.addValidation("txt_category_img","req","Please select add the picture");
+                frmvalidator.addValidation("txt_category_imga","req","Please select add the picture");
                 frmvalidator.addValidation("txt_category_desc","req","Please Describe the category");
                 frmvalidator.addValidation("txt_radio_yes","selone","please select any ");
 
