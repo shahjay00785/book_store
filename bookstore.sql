@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 03, 2017 at 11:34 AM
+-- Generation Time: Jul 04, 2017 at 06:08 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -70,10 +70,11 @@ CREATE TABLE `tbl_book_master` (
 --
 
 INSERT INTO `tbl_book_master` (`book_master_id`, `cat_id`, `book_master_name`, `book_master_img`, `author_id`, `publisher_id`, `book_master_isbn`, `book_master_status`, `book_master_desc`, `book_master_price`) VALUES
-(1, 2, '10 th book', 'math1.jpg', 1, 1, '1800-2500-5055-802', 'Yes', 'Maths book for 10 th stdard', 125),
+(1, 3, '10 th book', 'math1.jpg', 1, 1, '1800-2500-5055-802', 'Yes', 'Maths book for 10 th stdard', 125),
 (2, 2, '11 th science', 'science.jpg', 2, 1, '1800-2500-5055-802', 'Yes', '', 50),
-(3, 1, 'Principle of life', 'science2.jpg', 1, 1, '1800-2500-5055-802', 'Yes', 'good novel', 450),
-(4, 1, 'Novel 2', 'math2.jpg', 2, 2, '', 'Yes', 'good novel', 400);
+(3, 4, 'Principle of life', 'science2.jpg', 1, 1, '1800-2500-5055-802', 'Yes', 'good novel', 450),
+(4, 1, 'Novel 2', 'math2.jpg', 2, 2, '', 'Yes', 'good novel', 400),
+(5, 6, '10 math book', 'math1.jpg', 1, 1, '1800-2500-5055-802', 'Yes', 'good', 450);
 
 -- --------------------------------------------------------
 
@@ -118,6 +119,16 @@ CREATE TABLE `tbl_cart` (
   `product_qty` int(100) NOT NULL,
   `session_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_cart`
+--
+
+INSERT INTO `tbl_cart` (`cart_id`, `product_id`, `product_qty`, `session_id`) VALUES
+(1, 1, 1, 'im9n3orqc202k74co30d5tp3i5'),
+(2, 3, 2, 'im9n3orqc202k74co30d5tp3i5'),
+(3, 1, 1, 'scmbj270q8fumqhel0noif8bt2'),
+(4, 3, 1, 'scmbj270q8fumqhel0noif8bt2');
 
 -- --------------------------------------------------------
 
@@ -459,6 +470,21 @@ INSERT INTO `tbl_country` (`country_id`, `country_code`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_order_detail`
+--
+
+CREATE TABLE `tbl_order_detail` (
+  `order_detail_id` int(100) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `user_phone` double NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_pincode` int(100) NOT NULL,
+  `user_landmark` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_publisher`
 --
 
@@ -590,6 +616,12 @@ ALTER TABLE `tbl_country`
   ADD PRIMARY KEY (`country_id`);
 
 --
+-- Indexes for table `tbl_order_detail`
+--
+ALTER TABLE `tbl_order_detail`
+  ADD PRIMARY KEY (`order_detail_id`);
+
+--
 -- Indexes for table `tbl_publisher`
 --
 ALTER TABLE `tbl_publisher`
@@ -620,7 +652,7 @@ ALTER TABLE `tbl_author`
 -- AUTO_INCREMENT for table `tbl_book_master`
 --
 ALTER TABLE `tbl_book_master`
-  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `book_master_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_book_master_img`
 --
@@ -635,7 +667,7 @@ ALTER TABLE `tbl_book_status`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_category`
 --

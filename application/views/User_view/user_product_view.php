@@ -30,7 +30,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		</a>
     <div class="women">
-      <a href="#">Category Name</a>
+
+
+      <a href="#">Name</a>
       <ul class="w_nav">
         <li>Sort : </li>
         <li><a class="active" href="#">popular</a></li> |
@@ -46,7 +48,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<div class="product-left">
 			<?php
-		  $products=$this->book_master_model->book_master_view();
+			if(isset($sub_cat_id)){
+
+
+			$products=$this->book_master_model->book_master_sub_view($sub_cat_id);
+		}
+		else {
+			$id=$sub_cat_id;
+			$products=$this->book_master_model->book_master_sub_view($id);
+		}
 			$i=1;
 		  foreach ($products->result() as $row_product) {
 				if($i%3==0)
@@ -89,7 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		              <label for="rating-input-1-1" class="rating-star"> </label>
 		            </span>
 		          </div>
-		          <a class="now-get get-cart" href="#">ADD TO CART</a>
+		          <a class="now-get get-cart" href="<?php echo base_url('User_Controller/User_cart_controller/add_to_cart/').$row_product->book_master_id; ?>">ADD TO CART</a>
 		          <div class="clearfix"> </div>
 		        </div>
 		      </div>

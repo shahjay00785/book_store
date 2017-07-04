@@ -42,7 +42,7 @@
 					<a href="<?php echo base_url('User_Controller/user_home_controller'); ?>"><img src="<?php echo base_url('Assests/User_template/images/logo.png'); ?>" alt=" " /></a>
 				</div>
 				<div class="search">
-					<input type="text" id="txt_search name="txt_search" value="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  onkeyup="getgoogle()">
+					<input type="text" id="txt_search" name="txt_search" value="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  onkeyup="getgoogle()">
 					<input type="submit"  value="SEARCH">
 
 				</div>
@@ -78,7 +78,34 @@
 						?>
 
 					</ul>
-					<div class="cart"><a href="#"><span> </span>CART</a></div>
+					<?php
+					$id=session_id();
+
+					$products=$this->db->get_where('tbl_cart',array('session_id'=>$id));
+					$cart_item=$products->num_rows();
+
+					if($products->num_rows()==0){
+					?>
+					<div class="cart">
+						<a href="">
+							<span><?php echo "<p class=login style=padding-left:30px;>empty</p>"; ?></span>
+
+					</a>
+				</div>
+					<?php
+					}
+					else {
+					?>
+					<div class="cart">
+						<a href="<?php echo  base_url('User_Controller/user_checkout_controller'); ?>">
+							<span><?php echo "<p class=login style=padding-left:30px;>" .$cart_item."</p>"; ?>   </span>
+						</a>
+					</div>
+					<?php
+					}
+
+					?>
+
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>

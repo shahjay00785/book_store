@@ -14,7 +14,6 @@ class book_master_model extends CI_Model{
 
   public function book_master_sub_view($id){
     return $this->db->get_where('tbl_book_master',array('cat_id' =>$id));
-    //return $this->db->get('tbl_book_master');
   }
 
   public function book_master_delete($book_master_id){
