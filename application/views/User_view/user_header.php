@@ -78,7 +78,12 @@
 						?>
 
 					</ul>
+
+
+
 					<?php
+					if(isset($_SESSION["useremail"]))
+					{
 					$id=session_id();
 
 					$products=$this->db->get_where('tbl_cart',array('session_id'=>$id));
@@ -103,7 +108,21 @@
 					</div>
 					<?php
 					}
+				}
+				else {
 
+
+					?>
+
+
+					<div class="cart">
+						<a href="<?php echo base_url('User_Controller/User_login_controller'); ?>">
+							<span>   </span>
+						</a>
+					</div>
+					<?php
+
+				}
 					?>
 
 					<div class="clearfix"> </div>

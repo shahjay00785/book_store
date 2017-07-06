@@ -11,6 +11,7 @@ class User_cart_controller extends CI_Controller {
 	}
 
 	public function add_to_cart($id){
+			if(isset($_SESSION["useremail"])){
 			$cart_data['product_id']=$id;
 			$session_id=session_id();
 			$cart_data['session_id']=session_id();
@@ -26,11 +27,22 @@ class User_cart_controller extends CI_Controller {
 			else {
 			 $this->db->insert('tbl_cart',$cart_data);
 			}
-
+}
+else {
+	# code...
+}
 
 
 
 		 //redirect(base_url().'User_Controller/User_product_controller');
 		 redirect($_SERVER["HTTP_REFERER"]);
 	}
+
+	public function delete_to_cart($id){
+			$session_id=session_id();
+			$this->db->delete('tbl_cart',array('session_id'=>$session_id,'cart_id'=>$id));
+			 redirect($_SERVER["HTTP_REFERER"]);
+
+	}
+
 }

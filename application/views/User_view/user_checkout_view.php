@@ -38,6 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <th>Qty</th>
                 <th>M.R.P</th>
                 <th>Price</th>
+                <th>delete</th>
               </tr>
             </thead>
 
@@ -54,9 +55,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <tr>
                 <td><img src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img;  ?>" height="100px" weight="100px" ></td>
                 <td><?php echo $row_product->book_master_name; ?></td>
-                <td><?php echo $row_product->product_qty; ?></td>
+                <td><input type="button" value="-" name="-" style="height:20px;"><?php echo $row_product->product_qty; ?><input type="button" name="+" value="+" style="height:20px"></td>
                 <td><?php echo $row_product->book_master_price ?></td>
                 <td><?php echo  $price; ?></td>
+                <td><a href="<?php echo base_url('User_Controller/User_cart_controller/delete_to_cart/').$row_product->cart_id; ?>"> <img src="<?php echo base_url('img/icon/delete_product.jpg'); ?>" width=50px> </a> </td>
               </tr>
           </tbody>
 

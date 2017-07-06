@@ -29,17 +29,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class=" contact_right">
               <h3>Contact Form</h3>
               <div class="contact-form">
-            <form method="post" action="<?php echo base_url('User_controller/user_account_controller/add_user/add'); ?>">
+            <form method="post" action="<?php echo base_url('User_Controller/user_account_controller/add_user/add'); ?>">
 
 
-              <input type="text" class="textbox" nanme="txt_name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" style="width:500px;">
-              <input type="text" class="textbox" nanme="txt_phone" value="Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" style="width:500px;">
-              <input type="text" class="textbox" nanme="txt_pincode"value="Pin Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" style="width:500px;">
-              <input type="text" class="textbox" nanme="txt_email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
-              <textarea value="Address" nanme="txt_address" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Message';}" style="width:500px;">address</textarea>
-              <input type="text" class="textbox" nanme="txt_city" value="city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
-              <input type="text" class="textbox" nanme="txt_state" value="state" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
-              <input type="text" class="textbox"  nanme="txt_landmark"value="Landmark" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
+              <input type="text" class="textbox" name="txt_name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" style="width:500px;">
+              <input type="text" class="textbox" name="txt_phone" value="Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" style="width:500px;">
+              <input type="text" class="textbox" name="txt_pincode"value="Pin Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" style="width:500px;">
+              <input type="text" class="textbox" name="txt_email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
+              <textarea value="Address" name="txt_address" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Message';}" style="width:500px;">address</textarea>
+              <input type="text" class="textbox" name="txt_city" value="city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
+              <input type="text" class="textbox" name="txt_state" value="state" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
+              <input type="text" class="textbox"  name="txt_landmark"value="Landmark" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="width:500px;">
               <input type="submit" name="btn_submit" value="submit">
 
             </form>
