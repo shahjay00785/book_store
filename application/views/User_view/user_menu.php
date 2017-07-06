@@ -45,19 +45,14 @@
       ?>
 
       <div class=" top-nav rsidebar span_1_of_left">
-        <h3 class="cate">Search</h3>
+        <h3 class="cate">Second hand books</h3>
         <ul class="cute">
-          <li class="menu-kid-left"><a href="#"><select class="" name="">
-            <option value="">---select city---</option>
-          </select></a></li>
-          <li class="menu-kid-left"><a href="#"><select class="" name="">
-            <option value="">---select college---</option>
-            <option value="">---select college---</option>
-            <option value="">---select college---</option>
-          </select></a></li>
-          <li class="menu-kid-left"><a href="#"><select class="select1" name="">
-            <option value="">---select semester---</option>
-          </select> </a> </li>
+          <li class="menu-kid-left"><a href="<?php echo base_url('User_Controller/user_sell_controller'); ?>" >
+          sell</a></li>
+          <li class="menu-kid-left"><a href="<?php echo base_url('User_Controller/User_home_controller'); ?>">
+            Buy
+          </a></li>
+
 
         </ul>
       </ul>

@@ -11,6 +11,9 @@ class User_account_controller extends CI_Controller {
 
 	public function add_user($p=""){
 		if($p=="add"){
+
+
+
 			$user_data['user_name']=$this->input->post('txt_name');
 			$user_data['user_phone']=$this->input->post('txt_phone');
 			$user_data['user_pincode']=$this->input->post('txt_pincode');
@@ -19,6 +22,8 @@ class User_account_controller extends CI_Controller {
 			$user_data['user_state']=$this->input->post('txt_state');
 			$user_data['user_landmark']=$this->input->post('txt_landmark');
 			$this->db->insert('tbl_order_detail',$user_data);
+
+			//file_get_contents('user=sandipshira&password=123456&msisdn=$user_phone&sid=552044&msg=test%20message&fl=0&gwid=2');
 		}
 
 		$this->load->view('User_view/user_orderform_view');

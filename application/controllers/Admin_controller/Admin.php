@@ -395,4 +395,15 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin_view/search_view');
 	}
 
+	public function book_activity($status) {
+		$data=$this->book_master_model->book_master_view_id($status);
+	
+	/*	if($key_data->book_master_status=="Yes"){
+			$this->db->update('tbl_book_master',array('book_master_status'=>"No"));
+			$this->db->where('tbl_book_master',array('book_master_id'=>$status));
+		}
+*/
+
+	}
+
 }

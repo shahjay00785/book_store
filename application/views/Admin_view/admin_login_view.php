@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login</title>
+-  <title>Login</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="<?php echo base_url('Assests/Admin_template/css/bootstrap.min.css')?>" rel="stylesheet">
@@ -93,7 +93,7 @@
 
     <div class="container">
 
-      Login
+
       <br>
       <?php if(isset($msg))
       {
@@ -101,7 +101,7 @@
       }
       ?>
 
-      <form method="post" action="<?php echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
+<!--      <form method="post" action="<?php //echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
 
         <br><br>
         user name
@@ -112,12 +112,49 @@
         <br><br>
         <input type="submit" name="btn_submit">
 
+</form>
+
+!-->
+
+<form class="form-horizontal" method="post" action="<?php echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
+  <fieldset>
+    <legend>Login</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input type="text" name="txt_user_name"  class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" name="txt_user_password" class="form-control" id="inputPassword" placeholder="Password">
+        <!--<div class="checkbox">
+          <label>
+            <input type="checkbox"> Checkbox
+          </label>
+        </div> -->
 
       </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">reset</button>
+        <button type="submit" class="btn btn-primary">login</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+    </div>
       <!-- /.container-fluid -->
+
 
     </div>
     <!-- /#page-wrapper -->
+
+
+
 
   </div>
   <!-- /#wrapper -->

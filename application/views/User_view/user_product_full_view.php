@@ -50,6 +50,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			<?php
 				foreach($pdata->result() as  $row_data) {
+
+
 				}
 			?>
 			<div class="single_grid">
@@ -83,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h4><?php echo $row_data->book_master_name; ?></h4>
 					<div class="cart-b">
 						<div class="left-n ">Rs.<?php echo $row_data->book_master_price; ?></div>
-						<a class="now-get get-cart-in" href="#">ADD TO CART</a>
+						<a  href="<?php echo base_url('User_Controller/User_cart_controller/add_to_cart/').$row_data->book_master_id; ?>" class="now-get get-cart-in">ADD TO CART</a>
 						<div class="clearfix"></div>
 					</div>
 					<h6>100 items in stock</h6>
