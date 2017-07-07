@@ -250,7 +250,7 @@ class Admin extends CI_Controller {
 				$update_data['book_master_isbn']=$this->input->post('txt_book_master_isbn');
 				$update_data['book_master_status']=$this->input->post('txt_radio_yes');
 				$update_data['author_id']=$this->input->post('txt_select_author');
-				$update_data['publisher_id']=$this->input->post('txt_select_publisher');
+				$update_data['pub-lisher_id']=$this->input->post('txt_select_publisher');
 				$update_data['cat_id']=$this->input->post('txt_select_category');
 
 				if($_FILES["txt_book_master_img"]["error"]==0)
@@ -397,12 +397,27 @@ class Admin extends CI_Controller {
 
 	public function book_activity($status) {
 		$data=$this->book_master_model->book_master_view_id($status);
-	
-	/*	if($key_data->book_master_status=="Yes"){
-			$this->db->update('tbl_book_master',array('book_master_status'=>"No"));
-			$this->db->where('tbl_book_master',array('book_master_id'=>$status));
+		foreach ($data->result() as $row_data) {
+			if($row_data->book_master_status=="Yes"){
+				$data="No";
+				$this->db->where('book_master_id',$status);
+				$this->db->update('tbl_book_master',array('book_master_status'=> $data));
+				redirect($_SERVER["HTTP_REFERER"]);
+			}
+			else {
+				if($row_data->book_master_status=="No"){
+					$data="Yes";
+					$this->db->where('book_master_id',$status);
+					$this->db->update('tbl_book_master',array('book_master_status'=> $data));
+					redirect($_SERVER["HTTP_REFERER"]);
+				}
+			}
+
+
 		}
-*/
+
+
+
 
 	}
 
