@@ -29,17 +29,17 @@
         <div class="col-xs-12">
         <form class="form-inline">
           <div class="form-group">
-            <label class="sr-only" for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Book name">
+            <label class="sr-only" for="exampleInputEmail3">Book Name</label>
+            <input type="text" class="form-control" id="txt_book_master_name" name="txt_book_master_name" onkeyup="getbookdata();" placeholder="Book name">
           </div>
           <div class="form-group">
-            <label class="sr-only" for="exampleInputPassword3">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Author">
+            <label class="sr-only" for="exampleInputPassword3">Author Name</label>
+            <input type="text"  class="form-control" id="txt_author_name" name="txt_author_name" onkeyup="getauthordata();" placeholder="Author Name">
 
           </div>
           <div class="form-group">
-            <label class="sr-only" for="exampleInputPassword3">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Publisher">
+            <label class="sr-only" for="exampleInputPassword3">Publisher Name</label>
+            <input type="text" class="form-control" id="txt_publisher_name" name="txt_publisher_name" onkeyup="getpublisherdata();" placeholder="Publisher Name">
 
           </div>
 

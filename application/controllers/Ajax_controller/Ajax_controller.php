@@ -34,6 +34,10 @@ class Ajax_controller extends CI_Controller {
       echo "<option value='".$row_category->cat_id."'>".$row_category->cat_name."</option>";
     }
 
+    public function data(){
+      return $this->db->view('tbl_book');
+    }
+
   }
 
 }
