@@ -8,4 +8,8 @@ class Search_controller extends CI_Controller {
     $this->load->view('Admin_view/ajax_search_view');
   }
 
+  public function databook($data){
+    echo $data;
+  }
+
 }

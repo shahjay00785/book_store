@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
--  <title>Login</title>
+  -  <title>Login</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="<?php echo base_url('Assests/Admin_template/css/bootstrap.min.css')?>" rel="stylesheet">
@@ -101,36 +101,37 @@
       }
       ?>
 
-<!--      <form method="post" action="<?php //echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
+      <!--      <form method="post" action="<?php //echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
 
-        <br><br>
-        user name
-        <input type="text" name="txt_user_name">
-        <br><br>
-        Password
-        <input type="password" name="txt_user_password">
-        <br><br>
-        <input type="submit" name="btn_submit">
+      <br><br>
+      user name
+      <input type="text" name="txt_user_name">
+      <br><br>
+      Password
+      <input type="password" name="txt_user_password">
+      <br><br>
+      <input type="submit" name="btn_submit">
 
-</form>
+    </form>
 
-!-->
+    !-->
 
-<form class="form-horizontal" method="post" action="<?php echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
-  <fieldset>
-    <legend>Login</legend>
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-      <div class="col-lg-10">
-        <input type="text" name="txt_user_name"  class="form-control" id="inputEmail" placeholder="Email">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-      <div class="col-lg-10">
-        <input type="password" name="txt_user_password" class="form-control" id="inputPassword" placeholder="Password">
-        <!--<div class="checkbox">
-          <label>
+    <form class="form-horizontal" method="post" action="<?php echo base_url('Admin_controller/Admin/manage_admin_login/check'); ?>">
+      <legend >Login</legend>
+      <fieldset>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+          <div class="col-lg-10">
+            <input type="text" name="txt_user_name"  class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input type="password" name="txt_user_password" class="form-control" id="inputPassword" placeholder="Password">
+            <!--<div class="checkbox">
+            <label>
             <input type="checkbox"> Checkbox
           </label>
         </div> -->
@@ -146,29 +147,29 @@
 
   </fieldset>
 </form>
-    </div>
-      <!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->
 
 
-    </div>
-    <!-- /#page-wrapper -->
+</div>
+<!-- /#page-wrapper -->
 
 
 
 
-  </div>
-  <!-- /#wrapper -->
+</div>
+<!-- /#wrapper -->
 
-  <!-- jQuery Version 1.11.0 -->
-  <script src="js/jquery-1.11.0.js"></script>
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-  <!-- Morris Charts JavaScript -->
-  <script src="js/plugins/morris/raphael.min.js"></script>
-  <script src="js/plugins/morris/morris.min.js"></script>
-  <script src="js/plugins/morris/morris-data.js"></script>
+<!-- Morris Charts JavaScript -->
+<script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

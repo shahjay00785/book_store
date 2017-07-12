@@ -29,7 +29,7 @@ class User_cart_controller extends CI_Controller {
 			}
 }
 else {
-	# code...
+		 
 }
 
 

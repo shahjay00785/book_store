@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Product</title>
 	<link href="<?php echo base_url('Assests/User_template/css/bootstrap.css'); ?>" rel="stylesheet" type="text/css" media="all" />
 	<!--theme-style-->
 	<link href="<?php echo base_url('Assests/User_template/css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
@@ -128,7 +128,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="clearfix"> </div>
 	</div>
 
-	<?php echo include_once('user_menu.php'); ?>
+	<?php echo include_once('user_menu_filter.php'); ?>
 
 	<!----footer--->
 	<?php echo include_once('user_footer.php'); ?>

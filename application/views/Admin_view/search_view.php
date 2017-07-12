@@ -1,9 +1,64 @@
+<script language="javascript" type="text/javascript">
+	function getXMLHTTP() { //fuction to return the xml http object
+		var xmlhttp=false;
+		try{
+			xmlhttp=new XMLHttpRequest();
+		}
+		catch(e)	{
+			try{
+				xmlhttp= new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				try{
+				xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch(e){
+					xmlhttp=false;
+				}
+			}
+		}
+
+		return xmlhttp;
+    }
+
+	function getdata()
+	{
+
+		var searchdata=document.getElementById('txt_book_master_name').value;
+    var strURL="<?php echo base_url('Ajax_controller/Ajax_controller/getbookdata/'); ?>"+searchdata;
+		//var strURL="googlesearch.php?data="+searchdata;
+    //alert(strURL);
+		var req = getXMLHTTP();
+
+		if (req) {
+
+
+			req.onreadystatechange = function() {
+				if (req.readyState == 4) {
+					// only if "OK"
+					if (req.status == 200) {
+						document.getElementById('mydiv').innerHTML=req.responseText;
+
+					} else {
+						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+					}
+				}
+			}
+			req.open("GET", strURL, true);
+			req.send(null);
+
+		}
+	}
+
+</script>
+
+
 <div id="wrapper">
 
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <?php include_once('admin_header.php'); ?>
+    <?php  include_once('admin_header.php'); ?>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <?php include_once('admin_menu.php'); ?>
     <!-- /.navbar-collapse -->
@@ -30,16 +85,27 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="sr-only" for="exampleInputEmail3">Book Name</label>
-            <input type="text" class="form-control" id="txt_book_master_name" name="txt_book_master_name" onkeyup="getbookdata();" placeholder="Book name">
+            <input type="text" class="form-control" id="txt_book_master_name" name="txt_book_master_name" onkeyup="getdata();" placeholder="Book name">
+
+						<div id="mydiv">
+
+						</div>
+
           </div>
           <div class="form-group">
             <label class="sr-only" for="exampleInputPassword3">Author Name</label>
             <input type="text"  class="form-control" id="txt_author_name" name="txt_author_name" onkeyup="getauthordata();" placeholder="Author Name">
+						<div id="mydiv">
+
+						</div>
 
           </div>
           <div class="form-group">
             <label class="sr-only" for="exampleInputPassword3">Publisher Name</label>
             <input type="text" class="form-control" id="txt_publisher_name" name="txt_publisher_name" onkeyup="getpublisherdata();" placeholder="Publisher Name">
+						<div id="mydiv">
+
+						</div>
 
           </div>
 
@@ -103,31 +169,7 @@
               $i++;
             }?>
 
-            <!--  <tr class="info">
-                <td>3</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-              </tr>
--->
-  <!--            <tr class="success">
-                <td>4</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-              </tr>
-              <tr class="danger">
-                <td>5</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-              </tr>
-              <tr class="warning">
-                <td>6</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-              </tr>  -->
+
               <tr class="active">
             </tbody>
           </table>

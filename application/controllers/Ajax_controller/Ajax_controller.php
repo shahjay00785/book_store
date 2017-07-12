@@ -31,13 +31,16 @@ class Ajax_controller extends CI_Controller {
     $category=$this->db->get_where('tbl_category',array('cat_parent_id'=> $category_id));
     foreach ($category->result() as $row_category) {
       //echo "<option value=1>jay</option>";
-      echo "<option value='".$row_category->cat_id."'>".$row_category->cat_name."</option>";
+      echo"<option value='".$row_category->cat_id."'>".$row_category->cat_name."</option>";
     }
-
-    public function data(){
-      return $this->db->view('tbl_book');
-    }
-
   }
 
+  public function getbookdata($data){
+    //echo $data;
+    $datas=$this->db->query("select * from tbl_book_master where book_master_name like '".$data."%'   ");
+    foreach ($datas->result() as $row_bookdata) {
+      //echo "<option value=1>jay</option>";
+      echo "<option value='".$row_bookdata->book_master_id."'>".$row_bookdata->book_master_name."</option>";
+    }
+  }
 }
