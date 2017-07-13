@@ -25,29 +25,42 @@
 	{
 
 		var searchdata=document.getElementById('txt_book_master_name').value;
-    var strURL="<?php echo base_url('Ajax_controller/Ajax_controller/getbookdata/'); ?>"+searchdata;
-		//var strURL="googlesearch.php?data="+searchdata;
-    //alert(strURL);
-		var req = getXMLHTTP();
+		if(searchdata!="")
+		{
+	    var strURL="<?php echo base_url('Ajax_controller/Ajax_controller/getbookdata/'); ?>"+searchdata;
+			//var strURL="googlesearch.php?data="+searchdata;
+	    //alert(strURL);
+			var req = getXMLHTTP();
 
-		if (req) {
+			if (req) {
 
 
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {
-						document.getElementById('mydiv').innerHTML=req.responseText;
+				req.onreadystatechange = function() {
+					if (req.readyState == 4) {
+						// only if "OK"
+						if (req.status == 200) {
+							document.getElementById('mydiv').innerHTML=req.responseText;
 
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+						} else {
+							alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+						}
 					}
 				}
+				req.open("GET", strURL, true);
+				req.send(null);
+
 			}
-			req.open("GET", strURL, true);
-			req.send(null);
+		}
+		else {
+			document.getElementById('mydiv').innerHTML="";
 
 		}
+	}
+
+	function setdata(text)
+	{
+		document.getElementById('txt_book_master_name').value=text;
+		document.getElementById('mydiv').innerHTML="";
 	}
 
 </script>
@@ -85,9 +98,9 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="sr-only" for="exampleInputEmail3">Book Name</label>
-            <input type="text" class="form-control" id="txt_book_master_name" name="txt_book_master_name" onkeyup="getdata();" placeholder="Book name">
+            <input type="text" autocomplete="off" class="form-control" id="txt_book_master_name" name="txt_book_master_name" onkeyup="getdata();" placeholder="Book name">
 
-						<div id="mydiv">
+						<div id="mydiv" style="display:block;position:absolute;background-color:black;color:white">
 
 						</div>
 

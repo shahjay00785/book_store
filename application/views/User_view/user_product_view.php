@@ -46,7 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!---->
 </br>
 
-		<div class="product-left">
+		<div class="product-left" id="product_div">
 			<?php
 			if(isset($sub_cat_id)){
 
