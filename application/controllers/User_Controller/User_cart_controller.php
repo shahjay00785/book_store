@@ -10,6 +10,26 @@ class User_cart_controller extends CI_Controller {
     //$this->load->view('User_view/User_cart_view');
 	}
 
+	public function update_cart()
+	{
+		//print_r($this->input->post('txt_id'));
+		//print_r($this->input->post('txt_qty'));
+		$ids=$this->input->post('txt_id');
+		$qtys=$this->input->post('txt_qty');
+
+		for($i=0;$i<count($ids);$i++)
+		{
+			echo "<br>";
+			echo "id is :".$ids[$i];
+			echo "updated qty is ".$qtys[$i];
+			$query="update tbl_cart set product_qty=".$qtys[$i]." where product_id=".$ids[$i]."
+			and session_id='".session_id()."'";
+			$this->db->query($query);
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+	}
+
+
 	public function add_to_cart($id){
 			if(isset($_SESSION["useremail"])){
 			$cart_data['product_id']=$id;
@@ -29,7 +49,7 @@ class User_cart_controller extends CI_Controller {
 			}
 }
 else {
-		 
+
 }
 
 

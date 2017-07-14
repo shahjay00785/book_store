@@ -98,6 +98,43 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function manage_college($parameter1="",$parameter2=""){
+		if(!isset($_SESSION["useremail"]))
+		{
+			redirect(base_url().'Admin_controller/Admin');
+		}
+		else
+		{
+			if($parameter1=="add"){
+				$data['college_name']=$this->input->post('txt_college_name');
+				$data['city_id']=$this->input->post('txt_select_city');
+				$this->db->insert('tbl_college',$data);
+				redirect('Admin_controller/Admin/manage_college');
+
+			}
+
+			if($parameter1=="delete"){
+				$this->db->where('college_id',$parameter2);
+				$this->db->delete('tbl_college');
+				redirect('Admin_controller/Admin/manage_college');
+			}
+
+			if($parameter1=="edit"){
+				$this->db->where('college_id',$parameter2);
+			 	$college_data['edit_college']=$this->db->get("tbl_college");
+
+			}
+
+			if($parameter1=="do_update"){
+			}
+			$college_data['college_data']=$this->db->join('tbl_city','tbl_city.city_id=tbl_college.city_id');
+			$college_data['college_data']=$this->db->get('tbl_college');
+
+		}
+		$college_data['college']=$this->db->get('tbl_college');
+		$this->load->view('Admin_view/college_view',$college_data);
+	}
+
 	public function manage_author($parameter1="",$parameter2=""){
 		if(!isset($_SESSION["useremail"]))
 		{
@@ -193,6 +230,128 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function smart_resize_image( $file, $width = 0, $height = 0, $proportional = false, $output = 'file', $delete_original = true, $use_linux_commands = false )
+  	{
+    	if ( $height <= 0 && $width <= 0 ) {
+      		return false;
+    	}
+
+    	$info = getimagesize($file);
+    	$image = '';
+
+    	$final_width = 0;
+    	$final_height = 0;
+    	list($width_old, $height_old) = $info;
+
+    	if ($proportional) {
+      		if ($width == 0) $factor = $height/$height_old;
+      		elseif ($height == 0) $factor = $width/$width_old;
+      		else $factor = min ( $width / $width_old, $height / $height_old);
+
+      		$final_width = round ($width_old * $factor);
+      		$final_height = round ($height_old * $factor);
+
+    	}
+    	else {
+     		$final_width = ( $width <= 0 ) ? $width_old : $width;
+      		$final_height = ( $height <= 0 ) ? $height_old : $height;
+    	}
+
+    	switch ( $info[2] ) {
+      		case IMAGETYPE_GIF:
+        	$image = imagecreatefromgif($file);
+      		break;
+      		case IMAGETYPE_JPEG:
+        	$image = imagecreatefromjpeg($file);
+      		break;
+      		case IMAGETYPE_PNG:
+        	$image = imagecreatefrompng($file);
+      		break;
+      		default:
+        	return false;
+    	}
+
+    	$image_resized = imagecreatetruecolor( $final_width, $final_height );
+
+    	if ( ($info[2] == IMAGETYPE_GIF) || ($info[2] == IMAGETYPE_PNG) ) {
+      	$trnprt_indx = imagecolortransparent($image);
+
+      	// If we have a specific transparent color
+      	if ($trnprt_indx >= 0) {
+
+ 	       // Get the original image's transparent color's RGB values
+   		     $trnprt_color    = imagecolorsforindex($image, $trnprt_indx);
+
+        // Allocate the same color in the new image resource
+    	    $trnprt_indx    = imagecolorallocate($image_resized, $trnprt_color['red'], $trnprt_color['green'], $trnprt_color['blue']);
+
+        // Completely fill the background of the new image with allocated color.
+        	imagefill($image_resized, 0, 0, $trnprt_indx);
+
+        // Set the background color for new image to transparent
+  	      imagecolortransparent($image_resized, $trnprt_indx);
+
+
+  	    }
+      // Always make a transparent background color for PNGs that don't have one allocated already
+    	elseif ($info[2] == IMAGETYPE_PNG) {
+
+        	// Turn off transparency blending (temporarily)
+        	imagealphablending($image_resized, false);
+
+ 	       // Create a new transparent color for image
+  	 	     $color = imagecolorallocatealpha($image_resized, 0, 0, 0, 127);
+
+     	   // Completely fill the background of the new image with allocated color.
+        	imagefill($image_resized, 0, 0, $color);
+
+  	      // Restore transparency blending
+    	    imagesavealpha($image_resized, true);
+      	}
+    }
+
+    imagecopyresampled($image_resized, $image, 0, 0, 0, 0, $final_width, $final_height, $width_old, $height_old);
+
+    if ( $delete_original ) {
+      if ( $use_linux_commands )
+        exec('rm '.$file);
+      else
+        @unlink($file);
+    }
+
+    switch ( strtolower($output) ) {
+      case 'browser':
+        $mime = image_type_to_mime_type($info[2]);
+        header("Content-type: $mime");
+        $output = NULL;
+      break;
+      case 'file':
+        $output = $file;
+      break;
+      case 'return':
+        return $image_resized;
+      break;
+      default:
+      break;
+    }
+
+    switch ( $info[2] ) {
+      case IMAGETYPE_GIF:
+        imagegif($image_resized, $output);
+      break;
+      case IMAGETYPE_JPEG:
+        imagejpeg($image_resized, $output);
+      break;
+      case IMAGETYPE_PNG:
+        imagepng($image_resized, $output);
+      break;
+      default:
+        return false;
+    }
+
+    return true;
+  }
+
 	public function manage_book_master($parameter1="",$parameter2=""){
 		if(!isset($_SESSION["useremail"]))
 		{
@@ -227,6 +386,23 @@ class Admin extends CI_Controller {
 					$this->upload->initialize($config);
 					$this->upload->do_upload('txt_book_master_img');
 					$data['book_master_img']=$newname;
+
+					$this->smart_resize_image("./img/book_master_img/".$newname,0,273,true, "./img/book_master_img/".$newname,false,false);
+
+					/*
+					$this->load->library('image_lib');
+					$config['image_library'] = 'gd2';
+					$config['source_image'] = './img/book_master_img/'.$newname;
+					$config['create_thumb'] = TRUE;
+					$config['maintain_ratio'] = TRUE;
+					$config['width']         = 75;
+					$config['height']       = 50;
+
+					$this->load->library('image_lib', $config);
+
+					$this->image_lib->resize();
+					*/
+
 				}
 
 				$this->book_master_model->book_master_save($data);
@@ -478,7 +654,7 @@ class Admin extends CI_Controller {
 				//redirect(base_url().'Admin_controller/Admin/manage_book_master');
 			}
 
-					$this->load->view('Admin_view/college_book_view');
+			$this->load->view('Admin_view/college_book_view');
 		}
 
 	}

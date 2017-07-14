@@ -24,6 +24,9 @@
           <a href="<?php echo base_url('Admin_controller/Admin/manage_publisher'); ?>">Publisher</a>
         </li>
         <li>
+          <a href="<?php echo base_url('Admin_controller/Admin/manage_college'); ?>">Colleges</a>
+        </li>
+        <li>
           <a href="<?php echo base_url('Admin_controller/Admin/manage_user'); ?>">User</a>
           <li>
             <a href="<?php echo base_url('Admin_controller/Admin/college_book'); ?>">Colleges Book</a>

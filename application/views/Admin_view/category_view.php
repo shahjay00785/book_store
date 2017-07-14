@@ -197,8 +197,8 @@
                       <td><a href='<?php echo base_url()."Admin_controller/Admin/manage_category/".$row->cat_id; ?>'><?php echo $row->cat_name; ?></td>
                   <!--    <td><img src="<?php //echo base_url('img/category_img/').$row->cat_img; ?>" width='100'> </td> -->
                       <td><?php echo $row->cat_desc; ?></td>
-                      <td><?php echo $row->cat_status; ?></td>
                       <td><?php echo $row->cat_update_date; ?></td>
+                      <td><?php echo $row->cat_status; ?></td>
                       <td><a href="<?php echo base_url('Admin_controller/Admin/manage_category/delete/').$row->cat_id; ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/delete.png'); ?>" width="50px" height="50px"> </a> </td>
                       <td><a href="<?php echo base_url('Admin_controller/Admin/manage_category/edit/').$row->cat_id; ?>"> <img class="img-circle" src="<?php echo base_url('img/icon/update.png'); ?>" width="50px" height="50px"></a> </td>
                     </tr>
