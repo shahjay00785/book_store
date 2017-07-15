@@ -144,7 +144,7 @@
             </thead>
             <tbody>
             <?php
-              $book=$this->book_master_model->book_master_view();
+            //  $book=$this->book_master_model->book_master_view();
               $i=1;
               foreach ($book->result() as $row_book) {
 
@@ -189,12 +189,16 @@
 
           <div class="row">
             <div class="col-md-3 col-md-offset-4">
-              <ul class="pagination pagination-lg">
+							<ul class="pagination pagination-lg">
+								<!--
                 <li class="disabled"><a href="#">&laquo;</a></li>
                 <li class="active"><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">&raquo;</a></li>
+							-->
+							<?php echo $paging_string; ?>
+              
               </ul>
             </div>
           </div>

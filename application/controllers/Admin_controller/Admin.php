@@ -352,7 +352,34 @@ class Admin extends CI_Controller {
     return true;
   }
 
-	public function manage_book_master($parameter1="",$parameter2=""){
+	function paging_init($controller_name,$total_row,$per_page)
+	{
+		/* pagination class starts here */
+		//echo $controller_name;
+		$this->load->library('pagination');
+		$config['base_url'] = base_url()."/Admin_controller/".$controller_name;
+		$config['total_rows'] =$total_row;
+		$config['per_page'] = $per_page;
+
+		// this extra
+		//$config['uri_segment'] = 4;
+		//$config['use_page_numbers'] = TRUE;
+		//$config['page_query_string'] = TRUE;
+		// this extra ends here
+
+				$config['first_tag_open'] = $config['last_tag_open']= $config['next_tag_open']= $config['prev_tag_open'] = $config['num_tag_open'] = '<li>';
+        $config['first_tag_close'] = $config['last_tag_close']= $config['next_tag_close']= $config['prev_tag_close'] = $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li><span><b style='color:red'>";
+        $config['cur_tag_close'] = "</b></span></li>";
+
+		$this->pagination->initialize($config);
+		$paging_string =$this->pagination->create_links();
+		return $paging_string;
+		/* pagination class ends here */
+	}
+
+
+	public function manage_book_master($parameter1="",$parameter2="",$parameter3=""){
 		if(!isset($_SESSION["useremail"]))
 		{
 			redirect(base_url().'Admin_controller/Admin');
@@ -447,8 +474,26 @@ class Admin extends CI_Controller {
 				$this->book_master_model->book_master_update($parameter2,$update_data);
 				redirect('Admin_controller/Admin/manage_book_master');
 			}
-			$book_master_data['book_masters']=$this->book_master_model->book_master_view('tbl_book_master');
-			$this->load->view('Admin_view/book_master_view',$book_master_data);
+
+
+
+			/* paging starts here */
+			$per_page=2;
+			$this->db->limit($per_page,$parameter3);
+			//$page_data['book']=$this->db->get("tbl_book_master");
+			$this->db->join('tbl_author','tbl_author.author_id=tbl_book_master.author_id');
+			$this->db->join('tbl_publisher','tbl_publisher.publisher_id=tbl_book_master.publisher_id');
+			$this->db->join('tbl_category','tbl_category.cat_id=tbl_book_master.cat_id');
+			$page_data['book_masters']= $this->db->get('tbl_book_master');
+
+			$books=$this->db->get("tbl_book_master");
+			$total_rows=$books->num_rows();
+			$page_data['paging_string']=$this->paging_init('Admin/manage_book_master',$total_rows,$per_page);
+
+
+			//$page_data['']=$this->book_master_model->book_master_view('tbl_book_master');
+			$this->load->view('Admin_view/book_master_view',$page_data);
+
 		}
 	}
 
@@ -604,8 +649,24 @@ class Admin extends CI_Controller {
 	}
 
 
-	public function search_bar(){
-		$this->load->view('Admin_view/search_view');
+	public function search_bar($param1=""){
+
+		/* paging starts here */
+		$per_page=3;
+		$this->db->limit($per_page,$param1);
+		//$page_data['book']=$this->db->get("tbl_book_master");
+		$this->db->join('tbl_author','tbl_author.author_id=tbl_book_master.author_id');
+		$this->db->join('tbl_publisher','tbl_publisher.publisher_id=tbl_book_master.publisher_id');
+		$this->db->join('tbl_category','tbl_category.cat_id=tbl_book_master.cat_id');
+		$page_data['book']= $this->db->get('tbl_book_master');
+
+		$books=$this->db->get("tbl_book_master");
+		$total_rows=$books->num_rows();
+		$page_data['paging_string']=$this->paging_init('Admin/search_bar',$total_rows,$per_page);
+		/* paging ends  here
+		 */
+
+		$this->load->view('Admin_view/search_view',$page_data);
 	}
 
 	public function book_activity($status) {
@@ -653,6 +714,7 @@ class Admin extends CI_Controller {
 				//$this->db->insert('tbl;_college_book',$data);
 				//redirect(base_url().'Admin_controller/Admin/manage_book_master');
 			}
+
 
 			$this->load->view('Admin_view/college_book_view');
 		}
