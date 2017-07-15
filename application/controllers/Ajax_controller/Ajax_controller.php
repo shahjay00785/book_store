@@ -28,6 +28,10 @@ class Ajax_controller extends CI_Controller {
     }
   }
 
+
+
+
+
   public function getbooks($college_id)
   {
     echo $college_id;
@@ -85,6 +89,68 @@ class Ajax_controller extends CI_Controller {
 
     <?php
   }
+
+
+
+
+  public function getcat($cat_id)
+  {
+    //echo $cat_id;
+    $i=1;
+
+    $products = $this->db->get('tbl_book_master');
+    foreach ($products->result() as $row_product) {
+      if($i%3==0)
+      {
+        ?>
+        <div class="col-md-4 chain-grid grid-top-chain" style="padding-bottom:20px">
+
+        <?php
+      }
+      else {
+        ?>
+        <div class="col-md-4 chain-grid">
+
+        <?php
+
+      }
+      $i++;
+      ?>
+
+
+
+      <a href="<?php echo base_url('User_Controller/User_product_controller/product_full/').$row_product->book_master_id; ?>"><img class="img-responsive chain" src="<?php echo base_url('img/book_master_img/').$row_product->book_master_img; ?>" alt=" " height="100px" width="200px" /></a>
+        <span class="star"> </span>
+        <div class="grid-chain-bottom">
+          <h6><a href="single.html"><?php echo $row_product->book_master_name; ?></a></h6>
+          <div class="star-price">
+            <div class="dolor-grid">
+              <span class="actual">Rs.<?php echo $row_product->book_master_price; ?></span>
+              <span class="reducedfrom">400$</span>
+              <span class="rating">
+                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                <label for="rating-input-1-5" class="rating-star1"> </label>
+                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                <label for="rating-input-1-4" class="rating-star1"> </label>
+                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                <label for="rating-input-1-3" class="rating-star"> </label>
+                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                <label for="rating-input-1-2" class="rating-star"> </label>
+                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                <label for="rating-input-1-1" class="rating-star"> </label>
+              </span>
+            </div>
+            <a class="now-get get-cart" href="<?php echo base_url('User_Controller/User_cart_controller/add_to_cart/').$row_product->book_master_id; ?>">ADD TO CART</a>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+      </div>
+
+    <?php } ?>
+
+    <?php
+  }
+
 
   public function getcity($state_id){
     $city=$this->db->get_where('tbl_city',array('state_id'=> $state_id));
