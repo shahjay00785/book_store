@@ -95,10 +95,10 @@ class Ajax_controller extends CI_Controller {
 
   public function getcat($cat_id)
   {
-    //echo $cat_id;
+
     $i=1;
 
-    $products = $this->db->get('tbl_book_master');
+    $products = $this->db->get_where('tbl_book_master',array('cat_id' =>$cat_id));
     foreach ($products->result() as $row_product) {
       if($i%3==0)
       {
@@ -164,7 +164,6 @@ class Ajax_controller extends CI_Controller {
   public function getsubcategory($category_id){
     $category=$this->db->get_where('tbl_category',array('cat_parent_id'=> $category_id));
     foreach ($category->result() as $row_category) {
-      //echo "<option value=1>jay</option>";
       echo"<option value='".$row_category->cat_id."'>".$row_category->cat_name."</option>";
     }
   }

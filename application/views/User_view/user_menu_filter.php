@@ -144,7 +144,7 @@ function getcategory(cat_id)
 			<select class="form-control"id="select" onchange="getcategory(this.value);">
 				<option value="">------------select category---------------------</option>
 				<?php
-				$category=$this->db->get_where("tbl_category",array('cat_parent_id'=>0));
+				$category=$this->db->get_where("tbl_category",array('cat_parent_id!='=>0));
 				foreach($category->result() as $category_row)
 				{
 					echo "<option value='".$category_row->cat_id."'>".$category_row->cat_name."</option>";
@@ -156,7 +156,7 @@ function getcategory(cat_id)
 
 
 		</div>
-		<div class="col-lg-14">
+	<!--	<div class="col-lg-14">
 			Subcategory
 			<select class="form-control"id="select">
 				<option value="">------------select college---------------------</option>
@@ -164,11 +164,9 @@ function getcategory(cat_id)
 				<option value="">------------select college---------------------</option>
 
 			</select>
+</div>
 
-
-
-
-		</div>
+-->
 		<div class="col-lg-14">
 			Publisher
 			<select class="form-control"id="select">

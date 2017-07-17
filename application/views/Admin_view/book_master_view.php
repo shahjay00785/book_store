@@ -112,7 +112,7 @@ function getsubcategory(category_id)
 
 						<div class="form-group">
 							<label>Selects Sub category</label>
-							<select class="form-control" id="txt_select_sub_category" name="txt_select_sub_category">
+							<select class="form-control" id="txt_select_sub_category" name="txt_sub_cat">
 								<option>---select sub category----</option>
 							</select>
 						</div>

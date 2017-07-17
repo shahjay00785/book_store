@@ -396,7 +396,7 @@ class Admin extends CI_Controller {
 				$data['book_master_status']=$this->input->post('txt_radio_yes');
 				$data['author_id']=$this->input->post('txt_select_author');
 				$data['publisher_id']=$this->input->post('txt_select_publisher');
-				$data['cat_id']=$this->input->post('txt_select_sub_category');
+				$data['cat_id']=$this->input->post('txt_sub_cat');
 
 
 				if($_FILES["txt_book_master_img"]["error"]==0)
