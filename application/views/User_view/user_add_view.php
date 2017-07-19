@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Add User</title>
   <link href="<?php echo base_url('Assests/User_template/css/bootstrap.css');?>" rel="stylesheet" type="text/css" media="all" />
   <!--theme-style-->
   <link href="<?php echo base_url('Assests/User_template/css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
@@ -28,71 +28,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <div class="main">
       <div class="reservation_top">
-        <div class=" contact_right">          <form class="form-horizontal">
+        <div class=" contact_right">          <form class="form-horizontal" id="myform" name="myform" method="post" action="<?php echo base_url(); ?>Admin_controller/Admin/reg_user/add" enctype="multipart/form-data">
             <fieldset>
-              <legend>Legend</legend>
+              <legend>Registration</legend>
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Full Name*</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="txt_reg_name" name="txt_reg_name" placeholder="User Name">
+                </div>
+              </div>
               <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                  <input type="text" class="form-control" id="txt_reg_email" name="txt_reg_email" placeholder="email">
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                <label for="inputEmail" class="col-lg-2 control-label">Number*</label>
                 <div class="col-lg-10">
-                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Checkbox
-                    </label>
-                  </div>
+                  <input type="text" class="form-control" id="txt_reg_number" name="txt_reg_number" placeholder="number">
                 </div>
               </div>
               <div class="form-group">
-                <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                <label for="inputPassword" class="col-lg-2 control-label">Password*</label>
                 <div class="col-lg-10">
-                  <textarea class="form-control" rows="3" id="textArea"></textarea>
-                  <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                  <input type="password" class="form-control" id="txt_reg_pwd1" name="txt_reg_pwd1" placeholder="Password">
+
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-lg-2 control-label">Radios</label>
+                <label for="inputPassword" class="col-lg-2 control-label">RE-Password*</label>
                 <div class="col-lg-10">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                      Option one is this
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                      Option two can be something else
-                    </label>
-                  </div>
+                  <input type="password" class="form-control" id="txt_reg_pwd2" name="txt_reg_pwd2" placeholder="Password">
+
                 </div>
               </div>
-              <div class="form-group">
-                <label for="select" class="col-lg-2 control-label">Selects</label>
-                <div class="col-lg-10">
-                  <select class="form-control" id="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                  <br>
-                  <select multiple="" class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
+
+                <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                   <button type="reset" class="btn btn-default">Cancel</button>
                   <button type="submit" class="btn btn-primary">Submit</button>

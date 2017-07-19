@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Not_found_controller extends CI_Controller {

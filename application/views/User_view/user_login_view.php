@@ -31,6 +31,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="account_grid">
       <div class=" login-right">
         <h3>REGISTERED CUSTOMERS</h3>
+        <?php
+
+               
+            ?>
+
+
         <p>If you have an account with us, please log in.</p>
         <form role="form" id="myform" name="myform" method="post" action="<?php echo base_url(); ?>User_Controller/User_login_controller/manage_login/check" enctype="multipart/form-data">
           <?php
@@ -54,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div class=" login-left">
         <h3>NEW CUSTOMERS</h3>
         <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-        <a class="acount-btn" href="<?php echo base_url('Admin_controller/Admin/add_user'); ?>">Create an Account</a>
+        <a class="acount-btn" href="<?php echo base_url('Admin_controller/Admin/manage_add_user'); ?>">Create an Account</a>
       </div>
       <div class="clearfix"> </div>
     </div>

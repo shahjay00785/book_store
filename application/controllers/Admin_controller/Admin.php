@@ -719,6 +719,22 @@ class Admin extends CI_Controller {
 			$this->load->view('Admin_view/college_book_view');
 		}
 
+
+
+
+	}
+
+	public function reg_user($parameter1="",$parameter2=""){
+
+			if($parameter1=="add"){
+				$data['registration_full_name']=$this->input->post('txt_reg_name');
+				$data['registration_email_id']=$this->input->post('txt_reg_email');
+				$data['registrayion_phone_number']=$this->input->post('txt_reg_number');
+
+				$this->db->insert('tbl_registration',$data);
+				$msg="sucessfull registration";
+				$this->load->view('User_view/user_login_view',$msg);
+		}
 	}
 
 }

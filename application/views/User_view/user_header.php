@@ -42,8 +42,8 @@
 					<a href="<?php echo base_url('User_Controller/user_home_controller'); ?>"><img src="<?php echo base_url('Assests/User_template/images/logo.png'); ?>" alt=" " /></a>
 				</div>
 				<div class="search">
-					<input type="text" id="txt_search" name="txt_search" value="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  onkeyup="getgoogle()">
-					<input type="submit"  value="SEARCH">
+					<input type="text" 	autocomplete="off"  id="txt_book_master_name" name="txt_book_master_name" onkeyup="getdata();" value="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  onkeyup="getgoogle()">
+					<input type="submit">
 
 				</div>
 				<div class="clearfix"> </div>
